@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/25 13:33:26 by cter-maa      #+#    #+#                 */
-/*   Updated: 2023/10/27 16:48:49 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/10/30 13:58:34 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 	
 	void Contact::set_nickname(std::string string)
 	{
-		_secret = string;	
+		_nickname = string;	
 	}
 	
 	void Contact::set_phone_number(std::string string)

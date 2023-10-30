@@ -6,12 +6,14 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/25 13:51:39 by cter-maa      #+#    #+#                 */
-/*   Updated: 2023/10/27 16:56:31 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/10/30 16:22:00 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	<iostream>
+#include	<iomanip>
 #include	<cstdlib>
+#include	<limits>
 #include	"PhoneBook.hpp"
 #define		MAX 8
 
@@ -24,30 +26,44 @@ int	main(void)
 	std::string cmd;
 	while (true)
 	{
-		std::cout << "enter: (ADD), (SEARCH), (EXIT)" << std::endl; 
+		std::cout << std::setw(9) << "enter: (ADD), (SEARCH), (EXIT)" << std::endl; 
 		if (!std::getline(std::cin, cmd))
 			std::exit(EXIT_FAILURE);
+		if (cmd == "")
+			std::getline(std::cin, cmd);
 		if (cmd == "exit" || cmd == "EXIT")
 			std::exit(EXIT_SUCCESS);
-		else if (cmd == "add" || cmd == "ADD")
+		if (cmd == "add" || cmd == "ADD")
 		{
 			if (index == MAX)
 				index = 0;
 			phonebook.set_contact(index);
+			std::cout << "you added a contact on index " << index << std::endl;
 			counter += 1;
 			index += 1;
 		}
-		else if (cmd == "search" || cmd == "SEARCH")
+		if (cmd == "search" || cmd == "SEARCH")
 		{
 			if (counter == 0)
 			{
-				std::cout << "Phonebook is empty, ";
+				std::cout << "phonebook is empty" << std::endl;
 				continue ;
 			}
 			else
 			{
-				phonebook.print_contact();
-			}	
+				if (counter > MAX)
+					counter = MAX;
+				phonebook.search_contact(counter);
+				std::cout << "enter index number for more info or hit enter to continue" << std::endl;
+				cmd = "";
+				while (cmd == "")
+				{
+					if (!std::getline(std::cin, cmd))
+						std::exit(EXIT_FAILURE);
+					if (cmd >= "0" && cmd <= "8")
+					phonebook.print_contact(cmd, counter);
+				}	
+			}
 		}
 	}
 	return 0;

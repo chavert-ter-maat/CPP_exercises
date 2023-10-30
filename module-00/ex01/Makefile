@@ -6,14 +6,14 @@
 #    By: cter-maa <cter-maa@student.42.fr>            +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/10/24 13:31:21 by cter-maa      #+#    #+#                  #
-#    Updated: 2023/10/27 11:43:34 by cter-maa      ########   odam.nl          #
+#    Updated: 2023/10/30 10:34:19 by cter-maa      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	:= phonebook
 
 CC		:= g++
-FLAGS	:= -Wall -Wextra -std=c++98
+FLAGS	:= -Wall -Wextra -std=c++98 -g
 
 SRC		:= $(wildcard *.cpp)
 
