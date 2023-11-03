@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/25 13:51:39 by cter-maa      #+#    #+#                 */
-/*   Updated: 2023/10/30 16:22:00 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/10/31 09:12:51 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(void)
 	std::string cmd;
 	while (true)
 	{
-		std::cout << std::setw(9) << "enter: (ADD), (SEARCH), (EXIT)" << std::endl; 
+		std::cout << std::setw(9) << "enter: ADD, SEARCH, EXIT" << std::endl; 
 		if (!std::getline(std::cin, cmd))
 			std::exit(EXIT_FAILURE);
 		if (cmd == "")

@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/27 11:25:00 by cter-maa      #+#    #+#                 */
-/*   Updated: 2023/10/30 16:24:02 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/10/31 12:57:02 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,9 +94,9 @@ void	PhoneBook::print_contact(std::string line, int counter)
 		std::cout << "invalid index" << std::endl;
 		return ;
 	}
-	std::cout << "first name: " << _contact_list[index].get_first_name() << std::endl;
-	std::cout << "last name: " << _contact_list[index].get_last_name() << std::endl;
-	std::cout << "nickname: " << _contact_list[index].get_nickname() << std::endl;
-	std::cout << "phone number: " << _contact_list[index].get_phone_number() << std::endl;
-	std::cout << "secret: " << _contact_list[index].get_secret() << std::endl;
+	std::cout << std::endl << "first name: \t" << _contact_list[index].get_first_name() << std::endl;
+	std::cout << "last name:\t" << _contact_list[index].get_last_name() << std::endl;
+	std::cout << "nickname:\t" << _contact_list[index].get_nickname() << std::endl;
+	std::cout << "phone number:\t" << _contact_list[index].get_phone_number() << std::endl;
+	std::cout << "secret:\t\t" << _contact_list[index].get_secret() << std::endl <<std::endl;
 }
