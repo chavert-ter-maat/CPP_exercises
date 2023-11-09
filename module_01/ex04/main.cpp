@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/08 09:58:42 by cter-maa      #+#    #+#                 */
-/*   Updated: 2023/11/09 14:26:01 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/11/09 15:10:42 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,19 @@ int main(int argc, char **argv)
 	std::string	replace_word(argv[3]);
 	if (search_word.empty())
 	{
-		std::cerr << "no input <string1>" << std::endl;
+		std::cerr << "no input <string1> found" << std::endl;
 		return 1;
 	}
  	std::ifstream infile(argv[1]);
     if (!infile.is_open()) 
 	{
-        std::cerr << "unable to open file: " << std::endl;
+        std::cerr << "unable to open file";
         return 1;
 	}
 	std::ofstream outfile(outfile_name.c_str());
     if (!outfile.is_open()) 
 	{
-        std::cerr << "unable to create file" << std::endl;
+        std::cerr << "unable to create file";
         return 1;
     }
 	std::string line;
