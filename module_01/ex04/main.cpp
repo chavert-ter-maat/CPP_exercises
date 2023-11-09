@@ -6,18 +6,13 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/08 09:58:42 by cter-maa      #+#    #+#                 */
-/*   Updated: 2023/11/08 15:51:17 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/11/09 14:26:01 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
 #include <string>
-
-void replaceLine(std::string &line, std::string s1, std::string s2)
-{
-	
-}
 
 int main(int argc, char **argv)
 {
@@ -26,37 +21,41 @@ int main(int argc, char **argv)
 		std::cerr << "expected input: <./file> <filename> <string1> <string2>" << std::endl;
 		return 1;
 	}
-	
 	std::string outfile_name(argv[1]);
 	outfile_name += ".replace";
-	std::string	s1(argv[2]);
-	std::string	s2(argv[3]);
-	
-	if (s1.empty())
+	std::string	search_word(argv[2]);
+	std::string	replace_word(argv[3]);
+	if (search_word.empty())
 	{
 		std::cerr << "no input <string1>" << std::endl;
 		return 1;
 	}
  	std::ifstream infile(argv[1]);
-    if (!infile.is_open()) {
+    if (!infile.is_open()) 
+	{
         std::cerr << "unable to open file: " << std::endl;
         return 1;
 	}
 	std::ofstream outfile(outfile_name.c_str());
     if (!outfile.is_open()) 
 	{
-        std::cerr << "unable to create file: " << std::endl;
+        std::cerr << "unable to create file" << std::endl;
         return 1;
     }
-	
-	std::string	line;
+	std::string line;
 	while(std::getline(infile, line))
 	{
-		replaceLine(line, s1, s2);
+		size_t pos = line.find(search_word);
+		while(pos != std::string::npos)
+		{
+			line = line.substr(0, pos) + replace_word + line.substr(pos + search_word.length());
+			pos = line.find(search_word, pos + replace_word.length());
+		}
 		outfile << line << std::endl;
+		if (infile.eof())
+			break ;
 	}
-	
-	outfile.close();
 	infile.close();
+	outfile.close();
     return 0;
 }
