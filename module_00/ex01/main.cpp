@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/10/25 13:51:39 by cter-maa      #+#    #+#                 */
-/*   Updated: 2023/10/31 09:12:51 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/11/14 14:50:06 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,15 @@ int	main(void)
 				if (counter > MAX)
 					counter = MAX;
 				phonebook.search_contact(counter);
-				std::cout << "enter index number for more info or hit enter to continue" << std::endl;
+				std::cout << "enter index number" << std::endl;
 				cmd = "";
-				while (cmd == "")
+				int flag = 0;
+				while (flag == 0)
 				{
 					if (!std::getline(std::cin, cmd))
 						std::exit(EXIT_FAILURE);
-					if (cmd >= "0" && cmd <= "8")
-					phonebook.print_contact(cmd, counter);
+					else if (cmd != "")
+						flag = phonebook.print_contact(cmd, counter);
 				}	
 			}
 		}
