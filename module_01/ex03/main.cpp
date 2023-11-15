@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/03 10:53:22 by cter-maa      #+#    #+#                 */
-/*   Updated: 2023/11/03 15:45:30 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/11/15 16:36:53 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int main(void)
 		club.setType("some other type of club");
 		bob.attack();
 	}
+	std::cout << std::endl;
 	{
 		Weapon club = Weapon("crude spiked club");
 		HumanB jim("Jim");

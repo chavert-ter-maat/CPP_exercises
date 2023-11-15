@@ -21,7 +21,6 @@ echo -e && echo test 2
 echo search word string1: '""'
 echo replace word string2: XD
 ./Sed txt "" XD
-rm txt.replace
 
 echo -e && echo test 3
 echo "non existing filename <xtx>"

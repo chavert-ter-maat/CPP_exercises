@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/01 15:12:56 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/02 11:36:33 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/11/15 16:31:07 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,9 @@ int	main(void)
 
 	zombie_array = zombieHorde(horde_size, "zombie");
 	for (int i = 0; i < horde_size; i++){
-		std::cout << "nr: " << i << " ";
+		std::cout << "nr: " << i+1 << " ";
 		zombie_array[i].announce();
 	}
 	delete[] zombie_array;
-	system("leaks zombieHorde");
 	return(0);
 }
