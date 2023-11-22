@@ -10,8 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef FORM_HPP
+#define FORM_HPP
+
 #include <iostream>
 #include "Bureaucrat.hpp"
+
 
 #define MIN_SIGN	10;
 #define MIN_EXE		5;
@@ -31,5 +35,8 @@ class Form
 		
 		friend std::ostream& operator<<(std::ostream& os, const Form& form);
 		
-		void	beSigned(Bureaucrat bureaucrat);
+		void 		beSigned(const Bureaucrat &obj);
+		std::string getName();
 };
+
+#endif

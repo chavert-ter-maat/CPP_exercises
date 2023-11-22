@@ -11,22 +11,23 @@
 /* ************************************************************************** */
 
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 int	main(void)
 {
 	try
 	{
-		Bureaucrat dude1("dude1", 5);
+		Bureaucrat dude1("dude1", 4);
 		Form form1("form1");
-	// std::cout << form1 << std::endl;
+		std::cout << form1 << std::endl;
 		form1.beSigned(dude1);
 		std::cout << form1 << std::endl;
+	// std::cout << form1 << std::endl;
 	}
 	catch (const char *error)
 	{
 		std::cout << error << std::endl;
 	}
-	
-	//////////////// signForm() not yet written ////////////////////
+	//////////////// signForm() not yet tested ////////////////////
 	return 0;
 }

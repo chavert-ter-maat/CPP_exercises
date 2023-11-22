@@ -38,6 +38,10 @@ std::ostream& operator<<(std::ostream& os, const Form& form){
 	return os;
 }
 
+std::string Form::getName(){
+	return this->_name;
+}
+
 void	Form::beSigned(Bureaucrat bureaucrat){
 	if (bureaucrat.getGrade() > this->_executeGrade || bureaucrat.getGrade() > this->_signGrade)
 		throw "GradeTooLowException";
