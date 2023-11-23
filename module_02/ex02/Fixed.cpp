@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/13 16:53:13 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/16 15:08:49 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/11/23 10:01:48 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ std::ostream	&operator<<(std::ostream &os, const Fixed &other){
 	os << other.toFloat();
 	return os;
 }
-
 
 // Arithmetic operators
 Fixed	Fixed::operator+(const Fixed &other){

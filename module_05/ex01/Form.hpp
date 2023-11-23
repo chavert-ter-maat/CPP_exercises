@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   Form.hpp                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/22 11:28:50 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/22 12:26:45 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/11/23 10:18:01 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 #define FORM_HPP
 
 #include <iostream>
-#include "Bureaucrat.hpp"
 
+class Bureaucrat;
 
 #define MIN_SIGN	10;
 #define MIN_EXE		5;
@@ -35,7 +35,7 @@ class Form
 		
 		friend std::ostream& operator<<(std::ostream& os, const Form& form);
 		
-		void 		beSigned(const Bureaucrat &obj);
+		void		beSigned(Bureaucrat &obj);
 		std::string getName();
 };
 

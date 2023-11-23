@@ -3,13 +3,14 @@
 /*                                                        ::::::::            */
 /*   Form.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/22 09:10:58 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/22 12:37:25 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/11/23 10:15:38 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Bureaucrat.hpp"
 #include "Form.hpp"
 
 Form::Form() : _name("Default"){
@@ -42,7 +43,7 @@ std::string Form::getName(){
 	return this->_name;
 }
 
-void	Form::beSigned(Bureaucrat bureaucrat){
+void	Form::beSigned(Bureaucrat &bureaucrat){
 	if (bureaucrat.getGrade() > this->_executeGrade || bureaucrat.getGrade() > this->_signGrade)
 		throw "GradeTooLowException";
 	this->_signed = true;

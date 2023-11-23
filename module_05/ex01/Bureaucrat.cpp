@@ -3,13 +3,14 @@
 /*                                                        ::::::::            */
 /*   Bureaucrat.cpp                                     :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/22 09:10:58 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/22 12:32:51 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/11/23 10:06:40 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Form.hpp"
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(0){
