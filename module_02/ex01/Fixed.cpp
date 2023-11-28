@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/13 16:53:13 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/15 13:48:32 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/11/28 11:05:18 by chavertterm   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ Fixed::Fixed(const Fixed &other){
 } 
 
 Fixed Fixed::operator=(const Fixed &other){
-	std::cout << "Copy assignment overload called" << std::endl;
+	std::cout << "Copy overload constructor called" << std::endl;
 	this->_fixed_point = other._fixed_point;
 	return (*this);
 }
@@ -43,7 +43,7 @@ Fixed::~Fixed(void){
 }
 
 int	Fixed::getRawBits() const {
-	return (this->_fixed_point >> this->_fractional_bit);
+	return (this->_fixed_point);
 }
 
 void	Fixed::setRawBits(int const raw){

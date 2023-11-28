@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/13 16:53:13 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/23 10:01:48 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/11/28 11:18:18 by chavertterm   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ Fixed::~Fixed(void){
 
 
 int	Fixed::getRawBits() const {
-	return (this->_fixed_point >> this->_fractional_bit);
+	return (this->_fixed_point);
 }
 
 void	Fixed::setRawBits(int const raw){
