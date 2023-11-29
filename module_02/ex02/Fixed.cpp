@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/13 16:53:13 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/28 11:18:18 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/11/29 10:02:59 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ Fixed::Fixed(const Fixed &other){
 
 // overload constructor
 Fixed &Fixed::operator=(const Fixed &other){
-	this->_fixed_point = other._fixed_point;
+	if (this != &other)
+		this->_fixed_point = other._fixed_point;
 	return *this;
 }
 
