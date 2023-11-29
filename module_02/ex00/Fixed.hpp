@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/13 16:33:05 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/28 11:01:15 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/11/29 11:59:48 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ class Fixed
 	public:
 	Fixed(); //default constructor
 	Fixed(const Fixed &other); //copy constructor
-	Fixed operator=(const Fixed &other); //operatore overload
+	Fixed& operator=(const Fixed &other); //operatore overload
 	~Fixed(); //destructor
 
 	int		getRawBits() const;

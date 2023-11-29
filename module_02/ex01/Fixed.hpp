@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/13 16:33:05 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/15 11:24:43 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/11/29 11:50:13 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Fixed
 		int		toInt(void) const;
 		float	toFloat(void) const;
 
-		Fixed operator=(const Fixed &other); //operatore overload
+		Fixed& operator=(const Fixed &other); //operatore overload
 		
 	private:
 		int 				_fixed_point;

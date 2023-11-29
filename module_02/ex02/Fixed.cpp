@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/13 16:53:13 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/29 10:02:59 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/11/29 15:36:10 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ Fixed Fixed::operator/(const Fixed& other){
 	Fixed temp(this->toFloat() / other.toFloat());
 	return temp;
 }
-
 
 // Increment/Decrement operators
 Fixed Fixed::operator--(int){

@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/13 16:53:13 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/29 10:02:33 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/11/29 11:50:19 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Fixed::Fixed(const Fixed &other){
 	this->_fixed_point = other._fixed_point;
 } 
 
-Fixed Fixed::operator=(const Fixed &other){
+Fixed& Fixed::operator=(const Fixed &other){
 	if (this != &other)
 	{
 		std::cout << "Copy overload constructor called" << std::endl;
