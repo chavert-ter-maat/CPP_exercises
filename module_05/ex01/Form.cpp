@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/22 09:10:58 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/23 10:15:38 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/11/30 11:52:17 by chavertterm   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,25 @@ std::string Form::getName(){
 	return this->_name;
 }
 
+const char *Form::GradeTooHighException::what() const throw(){
+	return ("GradeTooHigh");
+}
+
+const char *Form::GradeTooLowException::what() const throw(){
+	return ("GradeTooLow");
+}
+
+const char *Form::GradeIsWrong::what() const throw(){
+	return ("WrongGrade");
+}
+
 void	Form::beSigned(Bureaucrat &bureaucrat){
+	if (bureaucrat.getGrade() <= 0)
+		throw GradeIsWrong();
+	if (bureaucrat.getGrade() == 0)
+		throw GradeTooHighException();
 	if (bureaucrat.getGrade() > this->_executeGrade || bureaucrat.getGrade() > this->_signGrade)
-		throw "GradeTooLowException";
-	this->_signed = true;
+		throw GradeTooLowException();
+	else
+		this->_signed = true;
 }

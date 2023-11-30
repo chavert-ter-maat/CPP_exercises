@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/22 09:10:58 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/23 10:06:40 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/11/30 11:42:49 by chavertterm   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,17 +58,9 @@ void	Bureaucrat::signForm(Form &form){
 		form.beSigned(*this);
 		std::cout << this->_name << " signed " << form.getName() << std::endl;
 	}
-	catch (const std:: exception& e)
+	catch (const std::exception &e)
 	{
 		std::cout << this->_name << " couldn't sign " << form.getName() << " because "
 		<< e.what() << std::endl;
 	} 
-}
-
-const char* Bureaucrat::GradeTooHighException::what() const throw(){
-	return ("Exception. Grade too high");
-}
-
-const char* Bureaucrat::GradeTooLowException::what() const throw(){
-	return ("Exception. Grade too low");
 }

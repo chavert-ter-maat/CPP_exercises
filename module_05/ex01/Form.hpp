@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/22 11:28:50 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/23 10:18:01 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/11/30 11:52:58 by chavertterm   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,16 @@ class Bureaucrat;
 
 class Form
 {
+	class GradeTooHighException : public std::exception {
+        virtual const char *what() const throw();
+    };
+    class GradeTooLowException : public std::exception {
+        virtual const char *what() const throw();
+    };
+	class GradeIsWrong : public std::exception {
+		virtual const char *what() const throw();
+	};
+	
 	private:
 		const std::string	_name;
 		bool				_signed;
