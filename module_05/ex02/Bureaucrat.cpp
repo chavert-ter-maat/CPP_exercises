@@ -6,11 +6,11 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/22 09:10:58 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/30 11:42:49 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/12/01 11:09:54 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(0){
@@ -52,7 +52,7 @@ void Bureaucrat::incrementGrade(){
 		throw "GradeTooHighException";
 }
 
-void	Bureaucrat::signForm(Form &form){
+void	Bureaucrat::signForm(AForm &form){
 	try
 	{
 		form.beSigned(*this);

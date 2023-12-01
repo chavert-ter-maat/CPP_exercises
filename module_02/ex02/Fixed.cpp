@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/13 16:53:13 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/29 15:36:10 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/11/29 16:07:24 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ Fixed &Fixed::operator=(const Fixed &other){
 Fixed::~Fixed(void){
 }
 
-
 int	Fixed::getRawBits() const {
 	return (this->_fixed_point);
 }
@@ -65,6 +64,7 @@ std::ostream	&operator<<(std::ostream &os, const Fixed &other){
 	return os;
 }
 
+
 // Arithmetic operators
 Fixed	Fixed::operator+(const Fixed &other){
 	Fixed temp(this->toFloat() + other.toFloat());
@@ -85,6 +85,7 @@ Fixed Fixed::operator/(const Fixed& other){
 	Fixed temp(this->toFloat() / other.toFloat());
 	return temp;
 }
+
 
 // Increment/Decrement operators
 Fixed Fixed::operator--(int){

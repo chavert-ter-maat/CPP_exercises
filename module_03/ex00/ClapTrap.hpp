@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Claptrap.hpp                                       :+:    :+:            */
+/*   ClapTrap.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/16 15:52:52 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/20 13:33:01 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/12/01 14:41:19 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class ClapTrap
 		ClapTrap(ClapTrap &other_obj);
 		~ClapTrap();
 		
-		ClapTrap	&operator=(const ClapTrap &other_obj); //copy assignment operator
+		ClapTrap	&operator=(const ClapTrap &other_obj);  
 		
 		bool 	CanDoAction();
 		void	showInformation();
