@@ -13,17 +13,14 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 
-AForm::AForm() : _name("Default"){
-	this->_signed = false;
-	this->_signGrade = MIN_SIGN;
-	this->_executeGrade = MIN_EXE;
+/* ************************** Orthodox Canonical **************************** */
+AForm::AForm() : _name("Default"), _signed(false), _signGrade(MIN_SIGN), 
+	_executeGrade(MIN_EXE){
 	std::cout << "AForm default constructor is called" << std::endl;
 }
 	
-AForm::AForm(const std::string name) : _name(name){
-	this->_signed = false;
-	this->_signGrade = MIN_SIGN;
-	this->_executeGrade = MIN_EXE;
+AForm::AForm(const std::string name, const int sign_grade, const int exec_grade) 
+	: _name(name), _signed(false), _signGrade(sign_grade), _executeGrade(exec_grade){
 	std::cout << "AForm constructor is called" << std::endl;
 }
 
@@ -39,7 +36,9 @@ std::ostream& operator<<(std::ostream& os, const AForm& form){
 	return os;
 }
 
-std::string AForm::getName(){
+
+/* *************************** Member functions ***************************** */
+std::string AForm::getName() const{
 	return this->_name;
 }
 
@@ -55,7 +54,7 @@ const char *AForm::GradeIsWrong::what() const throw(){
 	return ("WrongGrade");
 }
 
-void	AForm::beSigned(Bureaucrat &bureaucrat){
+void	AForm::beSigned(Bureaucrat const &bureaucrat){
 	if (bureaucrat.getGrade() <= 0)
 		throw GradeIsWrong();
 	if (bureaucrat.getGrade() == 0)

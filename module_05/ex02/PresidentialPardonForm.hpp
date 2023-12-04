@@ -6,30 +6,34 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/01 15:49:07 by cter-maa      #+#    #+#                 */
-/*   Updated: 2023/12/01 16:23:07 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/12/04 14:50:38 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AFORM_HPP
-#define AFORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+#define PRESIDENTIALPARDONFORM_HPP
 
-#include <iostream>
+#include "AForm.hpp"
+#include "Bureaucrat.hpp"
 
-class Bureaucrat;
+#define PRES_MIN_SIGN	25
+#define PRES_MIN_EXE	5
 
-#define PRES_MIN_SIGN		25;
-#define PRES_MIN_EXE		5;
-
-class PresidentialPardonForm : public AForm;
+class PresidentialPardonForm : public AForm
 {
-	private
-		const std::string	_name;
-
+	private:
+		std::string	_target;
+	
 	public:
 		PresidentialPardonForm ();
 		PresidentialPardonForm (const std::string name);
-		 ~PresidentialPardonForm ();
-		std::ostream& operator<<(std::ostream& os, const AForm& form);
+		// Copy constructor
+    	PresidentialPardonForm(const PresidentialPardonForm &obj);
+   		// Operator overload
+    	PresidentialPardonForm& operator=(const PresidentialPardonForm &obj);
+		~PresidentialPardonForm ();
+
+		void execute(const Bureaucrat & executor);
 };
 
 #endif

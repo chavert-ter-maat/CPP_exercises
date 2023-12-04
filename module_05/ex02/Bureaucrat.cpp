@@ -6,13 +6,14 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/22 09:10:58 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/12/01 11:09:54 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/12/04 14:51:42 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
+/* ************************** Orthodox Canonical **************************** */
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(0){
 	std::cout << "Bureaucrat default constructor called" << std::endl;
 }
@@ -30,11 +31,12 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat){
 	return os;
 }
 
+/* *************************** Member functions ***************************** */
 std::string Bureaucrat::getName(){
 	return this->_name;
 }
 
-int Bureaucrat::getGrade(){
+int Bureaucrat::getGrade() const{
 	return this->_grade;
 }
 

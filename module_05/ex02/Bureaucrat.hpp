@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/22 09:11:00 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/12/01 16:10:52 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/12/04 14:51:32 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,11 @@ class Bureaucrat {
 		friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 		
 		std::string	getName();
-		int			getGrade();
+		int			getGrade() const;
 		void		incrementGrade();
 		void		decrementGrade();
 		void		signForm(AForm& form);
+		
 	
 		class GradeTooLowException : public std::exception{
 			public:
