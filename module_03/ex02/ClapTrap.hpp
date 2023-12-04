@@ -3,14 +3,19 @@
 /*                                                        ::::::::            */
 /*   ClapTrap.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/16 15:52:52 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/21 08:43:03 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/12/04 16:23:42 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+
+#define CLAP_HEALTH 10
+#define	CLAP_ENERGY 10
+#define CLAP_ATTACK	0
+#define CLAP_REPAIR	2
 
 class ClapTrap
 {	

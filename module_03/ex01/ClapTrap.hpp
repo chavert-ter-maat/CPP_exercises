@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ClapTrap.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/16 15:52:52 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/20 15:41:44 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/12/04 16:45:31 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,11 @@
 #define CLAPTRAP_HPP
 
 #include <iostream>
+
+#define CLAP_HEALTH 10
+#define	CLAP_ENERGY 10
+#define CLAP_ATTACK	0
+#define CLAP_REPAIR	2
 
 class ClapTrap
 {	

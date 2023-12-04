@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ScavTrap.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/20 14:42:35 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/20 16:12:14 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/12/04 16:44:07 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 
 #include "ClapTrap.hpp"
 
-#define ST_HEALTH 100;
-#define ST_ENERGY 50;
-#define ST_DAMAGE 20;
+#define SCAV_HEALTH 100
+#define SCAV_ENERGY 50
+#define SCAV_ATTACK 20
+#define SCAV_REPAIR 2
 
 class ScavTrap : public ClapTrap
 {
@@ -30,6 +31,7 @@ class ScavTrap : public ClapTrap
 		ScavTrap(const ScavTrap &other_obj);
 		~ScavTrap();
 
+		void	attack(const std::string& target);
 		void	guardgate();
 };
 

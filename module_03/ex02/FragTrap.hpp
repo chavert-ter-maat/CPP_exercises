@@ -3,18 +3,19 @@
 /*                                                        ::::::::            */
 /*   FragTrap.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/20 14:42:35 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/21 08:42:33 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/12/04 16:43:54 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-#define FT_HEALTH 100
-#define FT_ENERGY 50
-#define FT_DAMAGE 20
+#define FRAG_HEALTH 100
+#define FRAG_ENERGY 100
+#define FRAG_ATTACK 30
+#define FRAG_REPAIR 2
 
 class FragTrap : public ClapTrap
 {
@@ -26,5 +27,6 @@ class FragTrap : public ClapTrap
 		FragTrap(const FragTrap &other_obj);
 		~FragTrap();
 
+		void	attack(const std::string& target);
 		void	highFivesGuys(void);
 };
