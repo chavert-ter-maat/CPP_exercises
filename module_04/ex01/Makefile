@@ -3,17 +3,17 @@
 #                                                         ::::::::             #
 #    Makefile                                           :+:    :+:             #
 #                                                      +:+                     #
-#    By: chaverttermaat <chaverttermaat@student.      +#+                      #
+#    By: cter-maa <cter-maa@student.42.fr>            +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/11/21 09:05:30 by chavertterm   #+#    #+#                  #
-#    Updated: 2023/11/21 14:06:19 by chavertterm   ########   odam.nl          #
+#    Updated: 2023/12/05 16:26:31 by cter-maa      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	:= animal
 
 CC		:= c++
-FLAGS	:= -Wall -Wextra -Werror -std=c++98 
+FLAGS	:= -Wall -Wextra -Werror -std=c++98 -g
 
 SRC		:= $(wildcard *.cpp)
 

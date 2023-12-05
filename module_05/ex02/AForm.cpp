@@ -43,19 +43,19 @@ std::string AForm::getName() const{
 }
 
 const char *AForm::GradeTooHighException::what() const throw(){
-	return ("GradeTooHigh");
+	return ("Grade is too high");
 }
 
 const char *AForm::GradeTooLowException::what() const throw(){
-	return ("GradeTooLow");
+	return ("Grade is too low");
 }
 
 const char *AForm::GradeIsWrong::what() const throw(){
-	return ("WrongGrade");
+	return ("Wrong grade");
 }
 
 void	AForm::beSigned(Bureaucrat const &bureaucrat){
-	if (bureaucrat.getGrade() <= 0)
+	if (bureaucrat.getGrade() <= 0 || bureaucrat.getGrade() > 150)
 		throw GradeIsWrong();
 	if (bureaucrat.getGrade() == 0)
 		throw GradeTooHighException();

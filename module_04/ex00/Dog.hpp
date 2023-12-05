@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   Dog.hpp                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/21 09:16:14 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/21 11:29:39 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/12/05 16:19:20 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ class Dog : public Animal{
 
 	public:
 		Dog();
+		Dog(const std::string name);
 		Dog(const Dog &other_class);
 		Dog &operator=(const Dog& other_class);
 		~Dog();

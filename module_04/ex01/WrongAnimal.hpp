@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   WrongAnimal.hpp                                    :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/21 12:59:22 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/21 13:13:06 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/12/05 16:24:24 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class WrongAnimal // base class
 
 	public:
 		WrongAnimal();
+		WrongAnimal(const std::string name);
 		WrongAnimal(const WrongAnimal &other_class);
 		WrongAnimal &operator=(const WrongAnimal& other_class);
 		virtual ~WrongAnimal();

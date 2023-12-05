@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/21 09:05:47 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/21 15:36:07 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/12/05 16:28:50 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

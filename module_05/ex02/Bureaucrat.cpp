@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/22 09:10:58 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/12/04 14:51:42 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/12/05 14:24:55 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Bureaucrat::Bureaucrat() : _name("Default"), _grade(0){
 }
 	
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(grade){
-	std::cout << "Burueaucrat constructor called" << std::endl;
+	std::cout << "Bureaucrat constructor called" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat(){

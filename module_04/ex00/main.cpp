@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/21 09:05:47 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/21 13:20:25 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/12/05 16:04:26 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,16 @@ const Animal* j = new Dog();
 const Animal* i = new Cat();
 std::cout << j->getType() << " " << std::endl;
 std::cout << i->getType() << " " << std::endl;
-i->makeSound(); //will output the cat sound!
 j->makeSound();
+i->makeSound(); //will output the cat sound!
 meta->makeSound();
 
 std::cout << std::endl;
 
 const WrongAnimal* k = new WrongAnimal();
-std::cout << k->getType() << " " << std::endl;
 k->makeSound();
 
-const WrongAnimal* l = new WrongCat();
-std::cout << l->getType() << " " << std::endl;
+const WrongAnimal* l = new WrongCat("Tom");
 l->makeSound();
 
 

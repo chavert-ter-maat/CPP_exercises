@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/22 09:11:00 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/12/04 14:51:32 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/12/05 08:09:17 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <iostream>
 #include "AForm.hpp"
 
-class Aform;
+class AForm;
 
 class Bureaucrat {
 	private:
