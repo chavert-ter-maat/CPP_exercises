@@ -6,19 +6,34 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/22 09:10:58 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/30 11:42:49 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/12/06 13:21:32 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
+/* ************************** Orthodox Canonical **************************** */
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(0){
 	std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 	
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(grade){
-	std::cout << "Burueaucrat constructor called" << std::endl;
+	std::cout << "Bureaucrat constructor called" << std::endl;
+}
+
+Bureaucrat::Bureaucrat(const Bureaucrat &obj){
+	std::cout << "Bureaucrat copy constructor called" << std::endl;
+	*this = obj;
+}
+
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj) {
+	std::cout << "Bureaucrat overload operator called" << std::endl;
+    if (this != &obj){
+        this->_name = obj._name;
+        this->_grade = obj._grade;
+    }
+    return *this;
 }
 
 Bureaucrat::~Bureaucrat(){
@@ -29,6 +44,9 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat){
 	os << bureaucrat._name << ", bureaucrat grade " <<  bureaucrat._grade << std::endl;
 	return os;
 }
+
+
+/* *************************** Member functions ***************************** */
 
 std::string Bureaucrat::getName(){
 	return this->_name;

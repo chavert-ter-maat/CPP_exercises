@@ -6,13 +6,14 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/22 09:10:58 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/30 11:52:17 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/12/06 13:46:51 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
+/* ************************** Orthodox Canonical **************************** */
 Form::Form() : _name("Default"){
 	this->_signed = false;
 	this->_signGrade = MIN_SIGN;
@@ -25,6 +26,21 @@ Form::Form(const std::string name) : _name(name){
 	this->_signGrade = MIN_SIGN;
 	this->_executeGrade = MIN_EXE;
 	std::cout << "Form constructor is called" << std::endl;
+}
+
+Form::Form(const Form& obj){
+	std::cout << "Form copy constructor called" << std::endl;
+	*this = obj;
+}
+
+Form& Form::operator=(const Form& obj){
+	std::cout << "Form overload operator called" << std::endl;
+    if (this != &obj){
+        this->_name = obj._name;
+        this->_signed = obj._signed;
+		this->_signGrade = obj._executeGrade;
+		this->_executeGrade = obj._executeGrade;
+    }
 }
 
 Form::~Form(){

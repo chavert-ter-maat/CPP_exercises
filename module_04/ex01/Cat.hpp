@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/21 09:16:08 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/12/05 16:24:12 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/12/06 16:37:33 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 
 class Cat : public Animal{
 	private:
-		std::string _type;
+		Brain *_brain;
 
 	public:
 		Cat();
 		Cat(const std::string name);
-		Cat(const Cat &other_class);
-		Cat &operator=(const Cat& other_class);
+		Cat(const Cat &oobj);
+		Cat &operator=(const Cat& obj);
 		~Cat();
 
 		void makeSound() const;

@@ -13,7 +13,7 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 
-/* ************************** Orthodox Canonical **************************** */
+//* ************************** Orthodox Canonical **************************** */
 AForm::AForm() : _name("Default"), _signed(false), _signGrade(MIN_SIGN), 
 	_executeGrade(MIN_EXE){
 	std::cout << "AForm default constructor is called" << std::endl;
@@ -41,15 +41,6 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj) {
 AForm::~AForm(){
 	std::cout << "AForm deconstructor called" << std::endl;
 }
-
-std::ostream& operator<<(std::ostream& os, const AForm& form){
-	os << std::endl << form._name << std::endl 
-	<< "To sign this form the bureaucrat needs to have a minimum grade of: " <<  form._signGrade << std::endl
-	<< "To execute this form the bureaucrat needs to have a minimum grade of: " << form._executeGrade << std::endl
-	<< "This form is signed: " << form._signed << std::endl;
-	return os;
-}
-
 
 /* *************************** Member functions ***************************** */
 std::string AForm::getName() const{

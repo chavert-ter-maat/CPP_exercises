@@ -6,10 +6,11 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/22 09:10:58 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/12/06 13:16:39 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/12/06 13:15:31 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
 /* ************************** Orthodox Canonical **************************** */
@@ -44,11 +45,12 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat){
 	return os;
 }
 
+/* *************************** Member functions ***************************** */
 std::string Bureaucrat::getName(){
 	return this->_name;
 }
 
-int Bureaucrat::getGrade(){
+int Bureaucrat::getGrade() const{
 	return this->_grade;
 }
 
@@ -65,4 +67,16 @@ void Bureaucrat::incrementGrade(){
 	if (this->_grade <= 0)
 		throw "GradeTooHighException";
 }
-	
+
+void	Bureaucrat::signForm(AForm &form){
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->_name << " signed " << form.getName() << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << this->_name << " couldn't sign " << form.getName() << " because "
+		<< e.what() << std::endl;
+	} 
+}
