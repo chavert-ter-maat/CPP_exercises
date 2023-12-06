@@ -6,18 +6,15 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/21 09:16:11 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/12/05 16:19:07 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/12/06 09:39:58 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog() : _type("Dog") {
+Dog::Dog()  {
+	_type = "Dog";
 	std::cout << "Default constructor Dog is called" << std::endl;
-}
-
-Dog::Dog(const std::string name) : _type(name) {
-	std::cout << "Constructor Dog is called for " << name << std::endl;
 }
 
 Dog::Dog(const Dog &other_class){

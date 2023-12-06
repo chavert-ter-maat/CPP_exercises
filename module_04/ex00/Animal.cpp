@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/21 09:16:35 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/12/05 16:17:00 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/12/06 11:14:58 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 
 Animal::Animal() : _type("Default Animal") {
 	std::cout << "Default constructor Animal is called" << std::endl;
-}
-
-Animal::Animal(const std::string name) : _type(name) {
-	std::cout << "Constructor Animal is called for " << name << std::endl;
 }
 
 Animal::Animal(const Animal &other_class){

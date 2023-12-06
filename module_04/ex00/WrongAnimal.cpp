@@ -6,19 +6,16 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/21 13:01:27 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/12/05 16:01:59 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/12/06 10:56:46 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal() : _type("Default WrongAnimal") {
+WrongAnimal::WrongAnimal() : _type("WrongAnimal") {
 	std::cout << "Default constructor WrongAnimal is called" << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const std::string name) : _type(name) {
-	std::cout << "Constructor WrongAnimal is called for " << name << std::endl;
-}
 
 WrongAnimal::WrongAnimal(const WrongAnimal &other_class){
 	std::cout << "Copy constructor WrongAnimal is called" << std::endl;
@@ -40,5 +37,5 @@ const std::string &WrongAnimal::getType() const{
 }
 
 void WrongAnimal::makeSound() const{
-	std::cout << this->_type << " makes a wrongAnimal sound: *Piew Piew*" << std::endl;
+	std::cout << this->_type << " *Piew Piew*" << std::endl;
 }

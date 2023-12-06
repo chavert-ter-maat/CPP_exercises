@@ -6,18 +6,15 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/21 09:16:05 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/12/05 16:18:17 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/12/06 10:15:19 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat() : _type("Cat") {
+Cat::Cat(){
+	_type = "Cat";
 	std::cout << "Default constructor Cat is called" << std::endl;
-}
-
-Cat::Cat(const std::string name) : _type(name) {
-	std::cout << "Constructor Cat is called for " << name << std::endl;
 }
 
 Cat::Cat(const Cat &other_class){

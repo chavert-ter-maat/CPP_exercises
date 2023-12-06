@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/21 09:05:51 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/12/05 16:17:16 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/12/06 11:14:52 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class Animal // base class
 
 	public:
 		Animal();
-		Animal(const std::string name);
 		Animal(const Animal &other_class);
 		Animal &operator=(const Animal& other_class);
 		virtual ~Animal();
