@@ -3,10 +3,10 @@
 #                                                         ::::::::             #
 #    Makefile                                           :+:    :+:             #
 #                                                      +:+                     #
-#    By: chaverttermaat <chaverttermaat@student.      +#+                      #
+#    By: cter-maa <cter-maa@student.42.fr>            +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/11/21 09:05:30 by chavertterm   #+#    #+#                  #
-#    Updated: 2023/11/22 11:25:46 by chavertterm   ########   odam.nl          #
+#    Updated: 2023/12/06 11:29:29 by cter-maa      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
