@@ -6,11 +6,13 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/06 12:47:55 by cter-maa      #+#    #+#                 */
-/*   Updated: 2023/12/06 15:17:40 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/12/07 13:00:44 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AForm.hpp"
+#pragma once
+#ifndef INTER_HPP
+#define INTER_HPP
 
 class Intern{
     public:
@@ -28,7 +30,8 @@ class Intern{
 
         class FormNotFound : public std::exception{
             virtual const char* what() const throw(){
-                std::cerr << "File not found.";
+                return ("File not found.");
             }
-        }
+        };
 };
+#endif

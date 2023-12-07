@@ -24,18 +24,19 @@ AForm::AForm(const std::string name, const int sign_grade, const int exec_grade)
 	std::cout << "AForm constructor is called" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &obj){
-	std::cout << "Bureaucrat copy constructor called" << std::endl;
+AForm::AForm(const AForm &obj){
+	std::cout << "AForm copy constructor called" << std::endl;
 	*this = obj;
 }
 
-Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj) {
-	std::cout << "Bureaucrat overload operator called" << std::endl;
+AForm& AForm::operator=(const AForm& obj){
+	std::cout << "Form overload operator called" << std::endl;
     if (this != &obj){
         this->_name = obj._name;
-        this->_grade = obj._grade;
+        this->_signed = obj._signed;
+		this->_signGrade = obj._executeGrade;
+		this->_executeGrade = obj._executeGrade;
     }
-    return *this;
 }
 
 AForm::~AForm(){
@@ -44,8 +45,8 @@ AForm::~AForm(){
 
 std::ostream& operator<<(std::ostream& os, const AForm& form){
 	os << std::endl << form._name << std::endl 
-	<< "To sign this form the bureaucrat needs to have a minimum grade of: " <<  form._signGrade << std::endl
-	<< "To execute this form the bureaucrat needs to have a minimum grade of: " << form._executeGrade << std::endl
+	<< "To sign this form the AForm needs to have a minimum grade of: " <<  form._signGrade << std::endl
+	<< "To execute this form the AForm needs to have a minimum grade of: " << form._executeGrade << std::endl
 	<< "This form is signed: " << form._signed << std::endl;
 	return os;
 }

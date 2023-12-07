@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/22 09:10:58 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/12/06 13:15:31 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/12/07 13:02:29 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat){
 	os << bureaucrat._name << ", bureaucrat grade " <<  bureaucrat._grade << std::endl;
 	return os;
 }
+
 
 /* *************************** Member functions ***************************** */
 std::string Bureaucrat::getName(){

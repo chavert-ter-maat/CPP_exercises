@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "AForm.hpp"
 #include <stdlib.h>
 #include <fstream>
 #include "ShrubberyCreationForm.hpp"

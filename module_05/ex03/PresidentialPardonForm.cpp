@@ -6,10 +6,12 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/01 15:55:48 by cter-maa      #+#    #+#                 */
-/*   Updated: 2023/12/05 08:55:38 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/12/07 12:55:59 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "AForm.hpp"
+#include "Bureaucrat.hpp"
 #include "PresidentialPardonForm.hpp"
 
 /* ************************** Orthodox Canonical **************************** */

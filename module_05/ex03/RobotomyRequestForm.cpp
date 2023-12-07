@@ -6,11 +6,14 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/05 08:56:45 by cter-maa      #+#    #+#                 */
-/*   Updated: 2023/12/05 10:57:29 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/12/07 12:59:22 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "AForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include <iostream>
+#include <cstdlib>
 
 /* ************************** Orthodox Canonical **************************** */
 RobotomyRequestForm::RobotomyRequestForm() : AForm("Default", ROBOT_SIGN, ROBOT_EXEC),

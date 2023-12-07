@@ -6,16 +6,15 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/05 08:44:10 by cter-maa      #+#    #+#                 */
-/*   Updated: 2023/12/05 11:00:34 by cter-maa      ########   odam.nl         */
+/*   Updated: 2023/12/07 13:00:05 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AForm.hpp"
-#include "Bureaucrat.hpp"
-#include "cstdlib"
-
 #ifndef ROBOTOMYREQUESTFORM_HPP
 #define ROBOTOMYREQUESTFORM_HPP
+
+#include "AForm.hpp"
+#include "Bureaucrat.hpp"
 
 #define ROBOT_SIGN	72
 #define ROBOT_EXEC	137
