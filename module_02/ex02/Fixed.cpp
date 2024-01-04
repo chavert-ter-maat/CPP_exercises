@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/13 16:53:13 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/29 16:07:24 by cter-maa      ########   odam.nl         */
+/*   Updated: 2024/01/04 14:33:59 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ Fixed::Fixed(void){
 }
 
 // int constructor
-Fixed::Fixed(const int integer){
-	this->_fixed_point = integer << this->_fractional_bit; // needs fix
+Fixed::Fixed(const int integer) : _fixed_point(integer << this->_fractional_bit) {
 }
 
 // float constructor
