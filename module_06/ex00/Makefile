@@ -6,35 +6,51 @@
 #    By: chaverttermaat <chaverttermaat@student.      +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/11/21 09:05:30 by chavertterm   #+#    #+#                  #
-#    Updated: 2023/11/22 09:37:47 by chavertterm   ########   odam.nl          #
+#    Updated: 2024/01/10 11:37:49 by chavertterm   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	:= bureaucrat
+# File Name
+NAME	:= convert
 
-CC		:= c++
-FLAGS	:= -Wall -Wextra -Werror -std=c++98 
-
+# Object Files
 SRC		:= $(wildcard *.cpp)
+OBJ_DIR := ./obj
+OBJ     := $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 
-OBJ		:= $(SRC:.cpp=.o)
+# Compiler and Flags
+CC		:= c++
+FLAGS	:= -Wall -Wextra -Werror -std=c++11
 
+# Debugging
+ifdef DEBUG
+	FLAGS += -g
+endif
+
+ifdef FSAN
+	FLAGS += -fsanitize=address,undefined
+endif
+
+# Targets
 all: $(NAME)
+
+$(OBJ_DIR):
+	mkdir -p $@
 
 run: all
 	./$(NAME)
 
-%.o: %.cpp
+$(OBJ_DIR)/%.o: %.cpp | $(OBJ_DIR)
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
 	$(CC) $^ -o $(NAME)
 
 clean:
-	@$(RM) $(OBJ)
+	@rm -rf $(OBJ_DIR)
 
-fclean: 
-	@$(RM) $(NAME) $(OBJ)
+fclean: clean
+	@rm -rf $(NAME)
 
 re: fclean all
 
