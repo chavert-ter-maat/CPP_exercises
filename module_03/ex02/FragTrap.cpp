@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   FragTrap.cpp                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/20 14:42:08 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/21 08:32:32 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/12/04 16:28:50 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 FragTrap::FragTrap(){
 	this->_name = "Default";
-	this->_hitPoints = FT_HEALTH;
-	this->_energyPoints = FT_ENERGY;
-	this->_attackDamage = FT_DAMAGE;
+	this->_hitPoints = FRAG_HEALTH;
+	this->_energyPoints = FRAG_ENERGY;
+	this->_attackDamage = FRAG_ATTACK;
 	std::cout << "FragTrap default constructor is called" << std::endl;
 }
 
 FragTrap::FragTrap(std::string name){
 	this->_name = name;
-	this->_hitPoints = FT_HEALTH;
-	this->_energyPoints = FT_ENERGY;
-	this->_attackDamage = FT_DAMAGE;
+	this->_hitPoints = FRAG_HEALTH;
+	this->_energyPoints = FRAG_ENERGY;
+	this->_attackDamage = FRAG_ATTACK;
 	std::cout << "FragTrap constructor called for " << name << std::endl;
 }
 
@@ -40,7 +40,14 @@ FragTrap::~FragTrap(){
 }
 
 void	FragTrap::highFivesGuys(void){
-
+	if (this->CanDoAction() == false)
+		return ;
 	std::cout << "FragTrap with the name: " << this->_name << " wants to high five a bro" << std::endl;
 }
 
+void	FragTrap::attack(const std::string& target){
+	if (this->CanDoAction() == false)
+		return ;
+	std::cout << "FragTrap" << this->_name << " attacks, causing " 
+		<< this->_attackDamage << " points of damage to " << target << std::endl;
+}

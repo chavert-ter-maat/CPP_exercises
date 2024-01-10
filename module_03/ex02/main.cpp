@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/16 15:52:40 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/21 08:47:34 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/12/04 16:34:06 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,16 @@
 
 int	main(void)
 {
-	ScavTrap scav0;
 	ScavTrap scav1("Scavmeister");
 	scav1.guardgate();
-	scav1.guardgate();
-	scav1.guardgate();
-	
+
 	std::cout << std::endl;
-	FragTrap frag0;
 	FragTrap frag1("Frageroni");
+	frag1.showInformation();
+	frag1.highFivesGuys();
+	scav1.attack("Frageroni");
+	for (int i = 0; i < 5; i++)
+		frag1.takeDamage(SCAV_ATTACK);
 	frag1.showInformation();
 	frag1.highFivesGuys();
 	std::cout << std::endl;

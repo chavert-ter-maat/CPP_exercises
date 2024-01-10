@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   Brain.cpp                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/21 13:32:31 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/21 13:54:16 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/12/06 16:49:09 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@ Brain::Brain(){
 	std::cout << "Default constructor Brain is called" << std::endl;
 }
 
-Brain::Brain(const Brain &other_class){
+Brain::Brain(const Brain &obj){
 	std::cout << "Copy constructor Brain is called" << std::endl;
-		*this = other_class;
+		*this = obj;
 }
 
-Brain &Brain::operator=(const Brain& other_class){
-	if (this != &other_class)
+Brain &Brain::operator=(const Brain& obj){
+	if (this != &obj)
 	{
 		for (int i = 0; i < 100; i++)
-			this->_ideas[i] = other_class._ideas[i];
+			this->_ideas[i] = obj._ideas[i];
 	}
 	return *this;
 }

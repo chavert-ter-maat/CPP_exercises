@@ -3,16 +3,17 @@
 /*                                                        ::::::::            */
 /*   Cat.cpp                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/21 09:16:05 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/21 11:35:56 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/12/06 10:15:19 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 
-Cat::Cat() : _type("Cat") {
+Cat::Cat(){
+	_type = "Cat";
 	std::cout << "Default constructor Cat is called" << std::endl;
 }
 

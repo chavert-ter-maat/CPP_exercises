@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   Form.cpp                                           :+:    :+:            */
+/*   AForm.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
@@ -11,52 +11,66 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form() : _name("Default"){
-	this->_signed = false;
-	this->_signGrade = MIN_SIGN;
-	this->_executeGrade = MIN_EXE;
-	std::cout << "Form default constructor is called" << std::endl;
+/* ************************** Orthodox Canonical **************************** */
+AForm::AForm() : _name("Default"), _signed(false), _signGrade(MIN_SIGN), 
+	_executeGrade(MIN_EXE){
+	std::cout << "AForm default constructor is called" << std::endl;
 }
 	
-Form::Form(const std::string name) : _name(name){
-	this->_signed = false;
-	this->_signGrade = MIN_SIGN;
-	this->_executeGrade = MIN_EXE;
-	std::cout << "Form constructor is called" << std::endl;
+AForm::AForm(const std::string name, const int sign_grade, const int exec_grade) 
+	: _name(name), _signed(false), _signGrade(sign_grade), _executeGrade(exec_grade){
+	std::cout << "AForm constructor is called" << std::endl;
 }
 
-Form::~Form(){
-	std::cout << "Form deconstructor called" << std::endl;
+AForm::AForm(const AForm &obj){
+	std::cout << "AForm copy constructor called" << std::endl;
+	*this = obj;
 }
 
-std::ostream& operator<<(std::ostream& os, const Form& form){
+AForm& AForm::operator=(const AForm& obj){
+	std::cout << "Form overload operator called" << std::endl;
+    if (this != &obj){
+        this->_name = obj._name;
+        this->_signed = obj._signed;
+		this->_signGrade = obj._executeGrade;
+		this->_executeGrade = obj._executeGrade;
+    }
+}
+
+AForm::~AForm(){
+	std::cout << "AForm deconstructor called" << std::endl;
+}
+
+std::ostream& operator<<(std::ostream& os, const AForm& form){
 	os << std::endl << form._name << std::endl 
-	<< "To sign this form the bureaucrat needs to have a minimum grade of: " <<  form._signGrade << std::endl
-	<< "To execute this form the bureaucrat needs to have a minimum grade of: " << form._executeGrade << std::endl
+	<< "To sign this form the AForm needs to have a minimum grade of: " <<  form._signGrade << std::endl
+	<< "To execute this form the AForm needs to have a minimum grade of: " << form._executeGrade << std::endl
 	<< "This form is signed: " << form._signed << std::endl;
 	return os;
 }
 
-std::string Form::getName(){
+
+/* *************************** Member functions ***************************** */
+std::string AForm::getName() const{
 	return this->_name;
 }
 
-const char *Form::GradeTooHighException::what() const throw(){
-	return ("GradeTooHigh");
+const char *AForm::GradeTooHighException::what() const throw(){
+	return ("Grade is too high");
 }
 
-const char *Form::GradeTooLowException::what() const throw(){
-	return ("GradeTooLow");
+const char *AForm::GradeTooLowException::what() const throw(){
+	return ("Grade is too low");
 }
 
-const char *Form::GradeIsWrong::what() const throw(){
-	return ("WrongGrade");
+const char *AForm::GradeIsWrong::what() const throw(){
+	return ("Wrong grade");
 }
 
-void	Form::beSigned(Bureaucrat &bureaucrat){
-	if (bureaucrat.getGrade() <= 0)
+void	AForm::beSigned(Bureaucrat const &bureaucrat){
+	if (bureaucrat.getGrade() <= 0 || bureaucrat.getGrade() > 150)
 		throw GradeIsWrong();
 	if (bureaucrat.getGrade() == 0)
 		throw GradeTooHighException();

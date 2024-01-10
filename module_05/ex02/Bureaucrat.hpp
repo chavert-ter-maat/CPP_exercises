@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/22 09:11:00 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/28 10:59:13 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/12/06 13:19:41 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,30 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
+#include "AForm.hpp"
 
-class Form;
+class AForm;
 
-class Bureaucrat
-{
+class Bureaucrat {
 	private:
-		const std::string	_name;
-		int					_grade;
+		std::string	_name;
+		int			_grade;
 
 	public:
 		Bureaucrat();
 		Bureaucrat(const std::string name, int grade);
+		Bureaucrat(const Bureaucrat &obj);
+		Bureaucrat& operator=(const Bureaucrat& obj);
 		~Bureaucrat();
 	
 		friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
 		
 		std::string	getName();
-		int			getGrade();
+		int			getGrade() const;
 		void		incrementGrade();
 		void		decrementGrade();
-		void		signForm(Form& form);
+		void		signForm(AForm& form);
+		
 	
 		class GradeTooLowException : public std::exception{
 			public:

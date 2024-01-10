@@ -3,16 +3,17 @@
 /*                                                        ::::::::            */
 /*   Dog.cpp                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/21 09:16:11 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/21 11:35:49 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/12/06 09:39:58 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog() : _type("Dog") {
+Dog::Dog()  {
+	_type = "Dog";
 	std::cout << "Default constructor Dog is called" << std::endl;
 }
 

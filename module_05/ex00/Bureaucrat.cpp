@@ -3,23 +3,40 @@
 /*                                                        ::::::::            */
 /*   Bureaucrat.cpp                                     :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/22 09:10:58 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/22 10:46:06 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/12/06 13:16:39 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
+/* ************************** Orthodox Canonical **************************** */
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(0){
+	std::cout << "Bureaucrat default constructor called" << std::endl;
 }
 	
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(grade){
+	std::cout << "Bureaucrat constructor called" << std::endl;
+}
+
+Bureaucrat::Bureaucrat(const Bureaucrat &obj){
+	std::cout << "Bureaucrat copy constructor called" << std::endl;
+	*this = obj;
+}
+
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& obj) {
+	std::cout << "Bureaucrat overload operator called" << std::endl;
+    if (this != &obj){
+        this->_name = obj._name;
+        this->_grade = obj._grade;
+    }
+    return *this;
 }
 
 Bureaucrat::~Bureaucrat(){
-	std::cout << "Default deconstructor called" << std::endl;
+	std::cout << "Bureaucrat deconstructor called" << std::endl;
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat){

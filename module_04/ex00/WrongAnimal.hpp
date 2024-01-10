@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   WrongAnimal.hpp                                    :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/21 12:59:22 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/21 13:13:06 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/12/06 10:57:14 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ class WrongAnimal // base class
 		virtual ~WrongAnimal();
 		
 		const std::string &getType() const;
-		virtual void makeSound() const;
+		void makeSound() const;
 };
 #endif

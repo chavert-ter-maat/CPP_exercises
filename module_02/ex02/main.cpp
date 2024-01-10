@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/13 16:32:24 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/29 14:42:10 by cter-maa      ########   odam.nl         */
+/*   Updated: 2024/01/04 14:32:42 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int main(void)
 {
-    std::cout << "subject tests:\n"
-              << std::endl;
+    std::cout << "subject tests:\n" << std::endl;
     Fixed a;
     Fixed const b(Fixed(5.05f) * Fixed(2));
     std::cout << a << std::endl;
@@ -25,8 +24,8 @@ int main(void)
     std::cout << a << std::endl;
     std::cout << b << std::endl;
     std::cout << Fixed::max(a, b) << std::endl;
-    std::cout << "\nmy own tests:\n"
-              << std::endl;
+	
+    std::cout << "\nmy own tests:\n" << std::endl;
     Fixed c(5);
     Fixed d(2.5f);
     std::cout << "c = " << c << std::endl;

@@ -16,6 +16,11 @@ WrongCat::WrongCat() : _type("WrongCat") {
 	std::cout << "Default constructor WrongCat is called" << std::endl;
 }
 
+WrongCat::WrongCat(const std::string name){
+	this->_type = "WrongCat";
+	std::cout << "Default constructor WrongCat is called for " << name << std::endl;
+}
+
 WrongCat::WrongCat(const WrongCat &other_class){
 	std::cout << "Copy constructor WrongCat is called" << std::endl;
 	this->_type = other_class._type;

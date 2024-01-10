@@ -12,7 +12,8 @@
 
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat() : _type("WrongCat") {
+WrongCat::WrongCat(){
+	this->_type = "WrongCat";
 	std::cout << "Default constructor WrongCat is called" << std::endl;
 }
 
@@ -32,5 +33,5 @@ WrongCat::~WrongCat(){
 }
 
 void WrongCat::makeSound() const{
-	std::cout << this->_type << " WOEF (WrongAnimal sound)" << std::endl;
+	std::cout << this->_type << " miauuwww" << std::endl;
 }

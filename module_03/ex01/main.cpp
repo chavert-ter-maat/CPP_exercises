@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/16 15:52:40 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/21 08:48:57 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/12/04 16:44:44 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,22 @@
 
 int	main(void)
 {
-	ScavTrap scav0;
-	ScavTrap scav1("Scavmeister");
-	scav1.showInformation();
-	scav1.guardgate();
-	scav1.guardgate();
-	scav1.guardgate();
+
+	ScavTrap scav("Scavmeister");
+	scav.showInformation();
+	
+	ClapTrap clap;
+	clap.attack("Scavmeister");
+	std::cout << std::endl;
+	scav.takeDamage(CLAP_ATTACK);
+	scav.showInformation();
+	scav.beRepaired(SCAV_REPAIR);
+	scav.showInformation();
+
+	scav.attack("clap");
+	clap.takeDamage(SCAV_ATTACK);
+	
+	scav.guardgate();
+	scav.guardgate();
+	scav.guardgate();
 }

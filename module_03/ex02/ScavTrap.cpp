@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ScavTrap.cpp                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/20 14:42:08 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/20 16:12:09 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/12/04 16:20:18 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 ScavTrap::ScavTrap(){
 	this->_name = "Default";
-	this->_hitPoints = ST_HEALTH;
-	this->_energyPoints = ST_ENERGY;
-	this->_attackDamage = ST_DAMAGE;
+	this->_hitPoints = SCAV_HEALTH;
+	this->_energyPoints = SCAV_ENERGY;
+	this->_attackDamage = SCAV_ATTACK;
 	this->_guardgate = false;
 	std::cout << "ScavTrap default constructor is called" << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name){
 	this->_name = name;
-	this->_hitPoints = ST_HEALTH;
-	this->_energyPoints = ST_ENERGY;
-	this->_attackDamage = ST_DAMAGE;
+	this->_hitPoints = SCAV_HEALTH;
+	this->_energyPoints = SCAV_ENERGY;
+	this->_attackDamage = SCAV_ATTACK;
 	this->_guardgate = false;
 	std::cout << "ScavTrap constructor called for " << name << std::endl;
 }
@@ -53,4 +53,11 @@ void	ScavTrap::guardgate(){
 		this->_guardgate = false;
 		std::cout << this->_name <<"'s guardgate is off" << std::endl;
 	}
+}
+
+void	ScavTrap::attack(const std::string& target){
+	if (this->CanDoAction() == false)
+		return ;
+	std::cout << "ScavTrap" << this->_name << " attacks, causing " 
+		<< this->_attackDamage << " points of damage to " << target << std::endl;
 }

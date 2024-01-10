@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   Animal.cpp                                         :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/21 09:16:35 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/21 11:13:12 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/12/06 11:14:58 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

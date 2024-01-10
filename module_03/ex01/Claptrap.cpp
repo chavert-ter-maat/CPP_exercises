@@ -3,50 +3,39 @@
 /*                                                        ::::::::            */
 /*   Claptrap.cpp                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/16 15:53:06 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/20 16:10:39 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/12/04 16:13:47 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-
-ClapTrap::ClapTrap(){
+ClapTrap::ClapTrap() : _name("Default"){
 	std::cout << "ClapTrap default constructor is called" << std::endl;
-	this->_name = "Default";
-	this->_hitPoints = 10;
-	this->_energyPoints = 10;
-	this->_attackDamage = 3;
+	this->_hitPoints = CLAP_HEALTH;
+	this->_energyPoints = CLAP_ENERGY;
+	this->_attackDamage = CLAP_ATTACK;
 }
 
 ClapTrap::ClapTrap(const std::string &name) : _name(name)
 {
     std::cout << "ClapTrap constructor is called with the name: " << name << std::endl;
-    this->_hitPoints = 10;
-    this->_energyPoints = 10;
-    this->_attackDamage = 3;
+	this->_hitPoints = CLAP_HEALTH;
+	this->_energyPoints = CLAP_ENERGY;
+	this->_attackDamage = CLAP_ATTACK;
 }
 
 ClapTrap::ClapTrap(ClapTrap &other_obj){
 	if (this != &other_obj)
-	{
-		this->_name = other_obj._name;
-		this->_hitPoints = other_obj._hitPoints;
-		this->_energyPoints = other_obj._energyPoints;
-		this->_attackDamage = other_obj._attackDamage;
-	}
+		*this = other_obj;
 	std::cout << "ClapTrap copy constructor called from " << other_obj._name<< std::endl;
-}
-
-ClapTrap::~ClapTrap(){
-	std::cout << "ClapTrap deconstructor is called for " << this->_name << std::endl;
 }
 
 ClapTrap	&ClapTrap::operator=(const ClapTrap &other_obj)
 {
-	std::cout << "ClapTrap copy constructor called, copied from " << other_obj._name << std::endl;
+	std::cout << "ClapTrap assignment overload copied from " << other_obj._name << std::endl;
 	if (this != &other_obj)
 	{
 		this->_name = other_obj._name;
@@ -55,6 +44,10 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &other_obj)
 		this->_attackDamage = other_obj._attackDamage;
 	}
 	return *this;
+}
+
+ClapTrap::~ClapTrap(){
+	std::cout << "ClapTrap deconstructor is called for " << this->_name << std::endl;
 }
 
 bool	ClapTrap::CanDoAction(){

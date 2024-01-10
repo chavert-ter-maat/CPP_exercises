@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   Dog.hpp                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/21 09:16:14 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/21 11:29:39 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/12/06 09:39:34 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,6 @@
 #include "Animal.hpp"
 
 class Dog : public Animal{
-	private:
-		std::string _type;
-
 	public:
 		Dog();
 		Dog(const Dog &other_class);

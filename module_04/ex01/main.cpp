@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/21 09:05:47 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/11/21 14:06:34 by chavertterm   ########   odam.nl         */
+/*   Updated: 2023/12/06 16:40:50 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,17 @@ int main()
 {
 const Animal* j = new Dog();
 const Animal* i = new Cat();
+const Animal l  = Cat(); // should not leak
 delete j;//should not create a leak
 delete i;
 
-Animal *animal[100];
 
-for (int i = 0; i < 50; i++)
-	animal[i] = new Cat();
-for (int i = 50; i < 100; i++)
-	animal[i] = new Dog();
-for (int i = 0; i < 100; i++)
-	delete animal[i];
+Dog basic;
+{
+Dog tmp = basic;
+}
+
+std::cout << std::endl << std::endl;
 
 return 0;
 }
