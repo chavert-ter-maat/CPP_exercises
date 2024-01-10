@@ -6,7 +6,7 @@
 /*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/10 11:20:47 by chavertterm   #+#    #+#                 */
-/*   Updated: 2024/01/10 13:18:17 by chavertterm   ########   odam.nl         */
+/*   Updated: 2024/01/10 17:57:22 by chavertterm   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,28 @@
 #include <iostream>
 #include <limits>
 
+typedef enum 
+	{
+		CHAR,
+		INT,
+		FLOAT,
+		DOUBLE,
+		DOUBLEPSUEDO,
+		FLOATPSUEDO,
+		UNKNOWN
+	} t_type;
+
 class ScalarConverter
 {
-	private:
-		/* data */
-		
 	public:
+		static void	converter(std::string argument);
+		
+	private:
 		ScalarConverter();
+		ScalarConverter(const ScalarConverter &obj);
+		ScalarConverter &operator=(const ScalarConverter &obj);
 		~ScalarConverter();
 		
-		enum scalar_type
-		{
-			CHAR,
-			INT,
-			FLOAT,
-			DOUBLE,
-			
-		};
-		converter();
+	typedef void(*t_func)(std::string &);
 };
 #endif
