@@ -6,7 +6,7 @@
 /*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/10 11:20:47 by chavertterm   #+#    #+#                 */
-/*   Updated: 2024/01/10 17:57:22 by chavertterm   ########   odam.nl         */
+/*   Updated: 2024/01/11 18:22:40 by chavertterm   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,10 @@ class ScalarConverter
 		
 	typedef void(*t_func)(std::string &);
 };
+
+void	convert_int(std::string str);
+void	convert_char(std::string str);
+void	convert_float(std::string str);
+void	convert_float_psuedo(std::string str);
+void	convert_double_psuedo(std::string str);
 #endif

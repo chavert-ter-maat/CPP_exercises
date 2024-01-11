@@ -6,7 +6,7 @@
 /*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/10 11:24:11 by chavertterm   #+#    #+#                 */
-/*   Updated: 2024/01/10 17:57:31 by chavertterm   ########   odam.nl         */
+/*   Updated: 2024/01/11 18:27:42 by chavertterm   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int     is_float_pseudo(const std::string &str)
     return (false);
 }
 
-t_type	getType(const std::string str){
+t_type	getType(std::string str){
 	size_t i = 0;
 	t_type type = UNKNOWN;
 	
@@ -60,6 +60,10 @@ t_type	getType(const std::string str){
 		return (FLOATPSUEDO);
 	if (str[i] == '-' || str[i] == '+')
 		i++;
+	if (isalpha(str[i]))
+		type = CHAR;
+	if (isalpha(str[i + 1]))
+		type = UNKNOWN;
 	while(isdigit(str[i]))
 		i++;
 	if (str[i] == '.' || str[i] == ',')
@@ -74,9 +78,7 @@ t_type	getType(const std::string str){
 		i++;
 		type = FLOAT;
 	}
-	if (str.length() == i)
-		return (type == UNKNOWN ? INT : type);
-	return (UNKNOWN);
+	return (type);
 }
 
 void	ScalarConverter::converter(std::string argument){
@@ -84,5 +86,27 @@ void	ScalarConverter::converter(std::string argument){
 	const char *str = argument.c_str();
 	
 	type = getType(str);
-	std::cout << type << std::endl;
+	switch(type){
+		case CHAR:
+			convert_char(str);
+			break ;
+		case INT:
+			convert_int(str);
+			break ;
+		case FLOAT:
+			convert_float(str);
+			break ;
+		case DOUBLE:
+			convert_double_psuedo(str);
+			break ;
+		case DOUBLEPSUEDO:
+			convert_double_psuedo(str);
+			break ;
+		case FLOATPSUEDO:
+			convert_float_psuedo(str);
+			break ;
+		case UNKNOWN:
+			std::cout << "Unkown stuff is going on\n";
+			break ;
+	}
 }
