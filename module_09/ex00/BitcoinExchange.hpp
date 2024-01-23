@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   main.cpp                                           :+:    :+:            */
+/*   BitcoinExchange.hpp                                :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/01/15 12:24:56 by chavertterm   #+#    #+#                 */
-/*   Updated: 2024/01/16 12:13:10 by chavertterm   ########   odam.nl         */
+/*   Created: 2024/01/15 12:26:16 by chavertterm   #+#    #+#                 */
+/*   Updated: 2024/01/23 11:54:17 by chavertterm   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Iter.hpp"
+#ifndef BITCOINEXCHANGE_HPP
+#define BITCOINEXCHANGE_HPP
 
-void	increment_int(int &a){
-	a += 1;
-}
+#include <iostream>
+#include <fstream>
 
-void	add(std::string &str){
-	str += '!';
-}
+template <typename T>
+class MutantStack : public std::stack<T>{
+public:
+	BitcoinExchange();
+	BitcoinExchange(const BitcoinExchange& obj);
+	BitcoinExchange& operator=(const BitcoinExchange& obj);
+	~BitcoinExchange();
+};
 
-int main( void ) {
-	int int_array[5] = {1, 2, 3, 4, 5};
-	std::string str_arr[4] = {"hallo", "everyone", "test", "123"};
-	Iter(int_array, 5, increment_int);
-	print(int_array, 5);
-	Iter(str_arr, 4, add);
-	print(str_arr, 4);
-	return 0;
-}
+// #include "BitcoinExchange.tpp"
+
+#endif

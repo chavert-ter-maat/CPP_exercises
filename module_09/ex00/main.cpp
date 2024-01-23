@@ -6,26 +6,22 @@
 /*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/15 12:24:56 by chavertterm   #+#    #+#                 */
-/*   Updated: 2024/01/16 12:13:10 by chavertterm   ########   odam.nl         */
+/*   Updated: 2024/01/23 11:55:46 by chavertterm   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Iter.hpp"
+#include "BitcoinExchange.hpp"
 
-void	increment_int(int &a){
-	a += 1;
-}
-
-void	add(std::string &str){
-	str += '!';
-}
-
-int main( void ) {
-	int int_array[5] = {1, 2, 3, 4, 5};
-	std::string str_arr[4] = {"hallo", "everyone", "test", "123"};
-	Iter(int_array, 5, increment_int);
-	print(int_array, 5);
-	Iter(str_arr, 4, add);
-	print(str_arr, 4);
-	return 0;
+int main(int argc, char **argv){
+    if (argc != 2){
+        std::cout << "wrong input" << std::endl;
+        std::cout << "expected input: <./btc> <filename>" << std::endl;
+        return 1;
+    }
+    std::ifstream file(argv[1]);
+    if (!file.is_open()){
+        std::cout << "file couldn't be opened" << std::endl;
+        return 1;
+    }
+    return 0;
 }
