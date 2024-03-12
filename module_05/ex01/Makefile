@@ -6,14 +6,14 @@
 #    By: cter-maa <cter-maa@student.42.fr>            +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/11/21 09:05:30 by chavertterm   #+#    #+#                  #
-#    Updated: 2023/12/06 11:38:50 by cter-maa      ########   odam.nl          #
+#    Updated: 2024/03/11 16:09:18 by cter-maa      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	:= form
 
 CC		:= c++
-FLAGS	:= -Wall -Wextra -Werror -std=c++98
+FLAGS	:= -Wall -Wextra -Werror -std=c++11
 
 SRC		:= $(wildcard *.cpp)
 

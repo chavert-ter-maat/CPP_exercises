@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   Intern.cpp                                         :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/12/06 12:52:20 by cter-maa      #+#    #+#                 */
-/*   Updated: 2023/12/07 13:19:13 by cter-maa      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   Intern.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cter-maa <cter-maa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/06 12:52:20 by cter-maa          #+#    #+#             */
+/*   Updated: 2024/03/12 09:17:59 by cter-maa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ Intern::~Intern(){
 	std::cout << "Intern deconstructor called" << std::endl;
 }
 
-
 /* *************************** Member functions ***************************** */
 AForm* Intern::makepresform(const std::string& target){
 	return (new PresidentialPardonForm(target));
@@ -50,13 +49,16 @@ AForm* Intern::makerobotoform(const std::string& target){
 	return (new RobotomyRequestForm(target));
 }
 
-AForm* Intern::makeForm(const std::string& form, const std::string& target){
+AForm* Intern::makeForm(const std::string& form, const std::string& target)
+{
 	std::string form_array[3] = {"presidential pardon", "robotomy request", "shrubbery creation"};
 	AForm* (Intern::*creation[3])(const std::string&) \
-	= {&Intern::makepresform, &Intern::makeshrubform, &Intern::makerobotoform};
+	= {&Intern::makepresform, &Intern::makerobotoform, &Intern::makeshrubform};
 	for(int i = 0; i < 3; i++){
-		if(form == form_array[i])
+		if(form == form_array[i]){
+			std::cout << std::endl << "Intern creates " << form << std::endl;
 			return (this->*creation[i])(target);
+		}
 	}
 	throw Intern::FormNotFound();
- }
+}

@@ -26,8 +26,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string name) : AForm(nam
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &obj) 
-	: AForm(obj.getName(), SHRUB_SIGN, SHRUB_EXEC){
-	*this = obj;
+	: AForm(obj.getNameForm(), SHRUB_SIGN, SHRUB_EXEC){
 	std::cout << "ShrubberyCreationForm copy constructor is called" << std::endl;
 }
 
@@ -52,13 +51,14 @@ const char *ShrubberyCreationForm::notCreated::what() const throw(){
 const char *ShrubberyCreationForm::notOpened::what() const throw(){
 	return ("Unable to open file.");
 }
-void   ShrubberyCreationForm::execute(Bureaucrat const & executor){
+void   ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 	std::string line;
 	std::string filename = _target + "_shrubbery.txt";
 
 	try{
-		this->beSigned(executor);
-
+		canBeSigned(executor);
+		if(executor.getGrade() > SHRUB_EXEC)
+			throw GradeTooLowException();
 		std::ofstream outfile(filename.c_str());
 		if (!outfile.is_open())
 			throw notCreated();

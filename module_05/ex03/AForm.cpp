@@ -12,11 +12,9 @@
 
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
-#include <iostream>
 
 /* ************************** Orthodox Canonical **************************** */
-AForm::AForm() : _name("Default"), _signed(false), _signGrade(MIN_SIGN), 
-	_executeGrade(MIN_EXE){
+AForm::AForm() : _name("Default"), _signed(false), _signGrade(MIN_SIGN), _executeGrade(MIN_EXE){
 	std::cout << "AForm default constructor is called" << std::endl;
 }
 	
@@ -25,20 +23,16 @@ AForm::AForm(const std::string name, const int sign_grade, const int exec_grade)
 	std::cout << "AForm constructor is called" << std::endl;
 }
 
-AForm::AForm(const AForm &obj){
+AForm::AForm(const AForm &obj): _name(obj._name), _signed(obj._signed), _signGrade(obj._signGrade), _executeGrade(obj._executeGrade){
 	std::cout << "AForm copy constructor called" << std::endl;
-	*this = obj;
 }
 
 AForm& AForm::operator=(const AForm& obj){
 	std::cout << "Form overload operator called" << std::endl;
     if (this != &obj){
-        this->_name = obj._name;
         this->_signed = obj._signed;
-		this->_signGrade = obj._executeGrade;
-		this->_executeGrade = obj._executeGrade;
     }
-	return (*this);
+	return *this;
 }
 
 AForm::~AForm(){
@@ -46,16 +40,21 @@ AForm::~AForm(){
 }
 
 std::ostream& operator<<(std::ostream& os, const AForm& form){
-	os << std::endl << form._name << std::endl 
-	<< "To sign this form the AForm needs to have a minimum grade of: " <<  form._signGrade << std::endl
-	<< "To execute this form the AForm needs to have a minimum grade of: " << form._executeGrade << std::endl
-	<< "This form is signed: " << form._signed << std::endl;
+	os << std::endl << form.getNameForm() << std::endl 
+	<< "To sign this form the AForm needs to have a minimum grade of: " <<  MIN_SIGN << std::endl
+	<< "To execute this form the AForm needs to have a minimum grade of: " << MIN_EXE << std::endl
+	<< "This form is signed: " << form.isSigned() << std::endl;
 	return os;
 }
 
+
 /* *************************** Member functions ***************************** */
-std::string AForm::getName() const{
+std::string AForm::getNameForm() const{
 	return this->_name;
+}
+
+bool	AForm::isSigned() const{
+	return this->_signed;
 }
 
 const char *AForm::GradeTooHighException::what() const throw(){
@@ -70,13 +69,26 @@ const char *AForm::GradeIsWrong::what() const throw(){
 	return ("Wrong grade");
 }
 
+const char *AForm::isSigned::what() const throw(){
+	return ("Form is already signed");
+}
+
 void	AForm::beSigned(Bureaucrat const &bureaucrat){
 	if (bureaucrat.getGrade() <= 0 || bureaucrat.getGrade() > 150)
 		throw GradeIsWrong();
-	if (bureaucrat.getGrade() == 0)
-		throw GradeTooHighException();
 	if (bureaucrat.getGrade() > this->_executeGrade || bureaucrat.getGrade() > this->_signGrade)
 		throw GradeTooLowException();
-	else
+	else{
 		this->_signed = true;
+		std::cout << bureaucrat.getName() << " excecuted " << getNameForm() << std::endl;
+	}
+}
+
+void	AForm::canBeSigned(Bureaucrat const &bureaucrat) const{
+	if (bureaucrat.getGrade() <= 0 || bureaucrat.getGrade() > 150)
+		throw GradeIsWrong();
+	if (bureaucrat.getGrade() > this->_executeGrade || bureaucrat.getGrade() > this->_signGrade)
+		throw GradeTooLowException();
+	if (this->isSigned() == true)
+		throw isSigned();
 }

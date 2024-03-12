@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/22 09:27:43 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/12/05 13:50:11 by cter-maa      ########   odam.nl         */
+/*   Updated: 2024/03/12 15:08:27 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,9 @@
 #include "ShrubberyCreationForm.hpp"
 
 void	testShrubberyCreationForm(){
-	std::cout << std::endl << "test ShruberyCreationForm" << std::endl;
+	std::cout << "---- test ShruberyCreationForm ----" << std::endl <<std::endl;
 	try{
 		Bureaucrat henkie("Henky", 1);
-		// Bureaucrat penkie("Penkie", 146);
 		ShrubberyCreationForm form1("ShrubShrub");
 		
 		// form1.execute(penkie);
@@ -32,14 +31,14 @@ void	testShrubberyCreationForm(){
 }
 
 void	testRobotoRequest(){
-	std::cout << std::endl << "test RobotomyRequest" << std::endl;
+	std::cout << "---- test RobotomyRequest ----" << std::endl;
 	try{
 		Bureaucrat harry("Harry", 71);
-		Bureaucrat barry("Barry", 73);
 		RobotomyRequestForm bender("Bender");
-		bender.execute(barry);
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < 5; i++){
 			bender.execute(harry);
+			std::cout << std::endl;
+		}
 	}
 	catch(const std::exception& e){
 		std::cerr << e.what() << std::endl;
@@ -48,23 +47,10 @@ void	testRobotoRequest(){
 }
 
 void	testPresidential(void){
-	try{
-	std::cout << std::endl << "test PresidentialPardonForm" << std::endl;
-	Bureaucrat pietje("Pietje", 4);
-	PresidentialPardonForm form1("''Innocent_suspect''" );
-	PresidentialPardonForm form2("");
-	PresidentialPardonForm form3(form1);
-	form2 = form1;
-	
-	form1.execute(pietje);
-	form2.execute(pietje);
-	form3.execute(pietje);
-	std::cout << std::endl;
-	
-	Bureaucrat puckje("Puckje", 6);
-	form1.execute(puckje);
-	std::cout << std::endl;
+	std::cout << "---- test PresidentialPardonForm ----" << std::endl;
 
+	try{
+	PresidentialPardonForm form1("''Form of Innocent_Suspect''" );
 	Bureaucrat plukje("Plukje", 151);
 	form1.execute(plukje);
 	std::cout << std::endl;
@@ -72,11 +58,19 @@ void	testPresidential(void){
 	catch(const std::exception& e){
 		std::cerr << e.what() << std::endl;
 	}
+	std::cout << std::endl;
+
+	Bureaucrat puckje2("Puckje2", 4);
+	PresidentialPardonForm form2("''Form of Innocent_Suspect''" );
+	puckje2.executeForm(form2);
+	std::cout << std::endl;
 }
 
 int	main(void){
 	testPresidential();
+	std::cout << std::endl;
 	testRobotoRequest();
+	std::cout << std::endl;
 	testShrubberyCreationForm();
 	return 0;
 }
