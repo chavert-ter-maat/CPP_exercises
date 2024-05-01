@@ -6,7 +6,7 @@
 /*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/15 12:26:16 by chavertterm   #+#    #+#                 */
-/*   Updated: 2024/02/28 13:13:11 by chavertterm   ########   odam.nl         */
+/*   Updated: 2024/04/29 16:40:59 by chavertterm   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
+#include <list>
 #include <deque>
 #include <chrono>
 
@@ -38,13 +38,13 @@ class PmergeMe{
 	void	merging(T& container, int const left, int const mid, int const right);
 
 	template <typename T>
-	void	checkDoubles(T container);
+	void	checkDoubles(const T& container);
 
 	void	startMergeVec();
 	void	startMergeDeq();
 
 	private:
-	std::vector<int>	_vec;
+	std::list<int>		_list;
 	std::deque<int>		_deq;
 	int					_elementsVec;
 	int					_elementsDeq;

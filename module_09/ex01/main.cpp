@@ -6,12 +6,11 @@
 /*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/15 12:24:56 by chavertterm   #+#    #+#                 */
-/*   Updated: 2024/01/25 16:06:08 by chavertterm   ########   odam.nl         */
+/*   Updated: 2024/04/29 15:48:55 by chavertterm   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
-
 
 int main(int argc, char **argv){
 	if (argc != 2 || strcmp(argv[1], "") == 0) {
@@ -20,7 +19,7 @@ int main(int argc, char **argv){
 		return 1;
 	}
 	try{
-		std::string str = argv[1];	
+		std::string str = argv[1];
 		RPN	obj;
 		obj.rpn(str);
 	}

@@ -6,7 +6,7 @@
 /*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/15 12:26:16 by chavertterm   #+#    #+#                 */
-/*   Updated: 2024/01/17 14:02:50 by chavertterm   ########   odam.nl         */
+/*   Updated: 2024/03/18 14:40:51 by chavertterm   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,13 @@ class Array{
 	
 	public:
 		Array();
-		Array(int len);
+		Array(size_t n);
 		Array(const Array &obj);
 		Array(T arr[]);
 		Array &operator=(const Array &obj);
 		T &operator[](int index);
 		~Array();
 		
-		// Array(T arr[], int len);
 		void			print_array();
 		int	size();
 

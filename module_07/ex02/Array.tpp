@@ -6,7 +6,7 @@
 /*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/16 12:56:09 by chavertterm   #+#    #+#                 */
-/*   Updated: 2024/01/17 15:04:18 by chavertterm   ########   odam.nl         */
+/*   Updated: 2024/03/18 14:40:55 by chavertterm   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ Array<T>::Array() : _ptr(nullptr), _size(0){
 }
 
 template <typename T>
-Array<T>::Array(int len) : _size(len){
+Array<T>::Array(size_t n) : _size(n){
 	std::cout << "Array constructor called" << std::endl;
-	this->_ptr = new T[len];
+	this->_ptr = new T[n];
 }
 
 template <typename T> 

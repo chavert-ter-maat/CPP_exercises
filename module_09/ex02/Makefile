@@ -6,7 +6,7 @@
 #    By: cter-maa <cter-maa@student.42.fr>            +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/11/21 09:05:30 by chavertterm   #+#    #+#                  #
-#    Updated: 2024/02/27 16:22:26 by chavertterm   ########   odam.nl          #
+#    Updated: 2024/04/29 16:21:02 by chavertterm   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ OBJ     := $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 
 # Compiler and Flags
 CC		:= c++
-FLAGS	:= -Wall -Wextra -Werror -std=c++11 -g
+FLAGS	:= -Wall -Wextra -Werror -std=c++11 -g 
 
 # Debugging
 ifdef DEBUG
