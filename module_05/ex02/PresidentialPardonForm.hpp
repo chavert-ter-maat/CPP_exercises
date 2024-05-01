@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/01 15:49:07 by cter-maa      #+#    #+#                 */
-/*   Updated: 2023/12/05 08:55:58 by cter-maa      ########   odam.nl         */
+/*   Updated: 2024/03/12 14:57:16 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ class PresidentialPardonForm : public AForm
 		std::string	_target;
 	
 	public:
-		PresidentialPardonForm ();
+		PresidentialPardonForm();
 		PresidentialPardonForm (std::string const target);
     	PresidentialPardonForm(const PresidentialPardonForm &obj);
     	PresidentialPardonForm& operator=(const PresidentialPardonForm &obj);
-		~PresidentialPardonForm ();
+		~PresidentialPardonForm();
 
-		void execute(const Bureaucrat& executor);
+		bool	execute(const Bureaucrat& executor) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/22 11:28:50 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/12/06 13:45:40 by cter-maa      ########   odam.nl         */
+/*   Updated: 2024/03/12 11:17:50 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 class Bureaucrat;
 
-#define MIN_SIGN	10;
-#define MIN_EXE		5;
+#define MIN_SIGN	10
+#define MIN_EXE		5
 
 class Form
 {
@@ -28,10 +28,10 @@ class Form
 		Form(const Form& obj);
 		Form& operator=(const Form& obj);
 		~Form();
-		friend std::ostream& operator<<(std::ostream& os, const Form& form);
-		
-		void		beSigned(Bureaucrat &obj);
-		std::string getName();
+
+		void	beSigned(Bureaucrat &obj);
+		bool	isSigned() const;
+		std::string getName() const;
 		
 		class GradeTooHighException : public std::exception {
     	    virtual const char *what() const throw();
@@ -42,13 +42,14 @@ class Form
 		class GradeIsWrong : public std::exception {
 			virtual const char *what() const throw();
 		};
-	
+		
 	private:
-		std::string			_name;
+		const std::string	_name;
 		bool				_signed;
-		int					_signGrade;
-		int					_executeGrade;
+		const int			_signGrade;
+		const int			_executeGrade;
 
 };
+std::ostream& operator<<(std::ostream& os, const Form& form);
 
 #endif

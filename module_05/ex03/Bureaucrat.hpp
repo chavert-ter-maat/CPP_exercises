@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/22 09:11:00 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/12/07 13:09:54 by cter-maa      ########   odam.nl         */
+/*   Updated: 2024/03/12 13:50:02 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
+#include "AForm.hpp"
+#include <string>
 
-class AForm;
-
-class Bureaucrat {
+class Bureaucrat
+{
 	private:
-		std::string	_name;
-		int			_grade;
+		const std::string	_name;
+		int					_grade;
 
 	public:
 		Bureaucrat();
@@ -29,23 +30,22 @@ class Bureaucrat {
 		Bureaucrat& operator=(const Bureaucrat& obj);
 		~Bureaucrat();
 	
-		friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
+
+		class GradeTooHighException : public std::exception{
+			const char *what() const throw();
+		};
+
+		class GradeTooLowException : public std::exception{
+			const char *what() const throw();
+		};
 		
-		std::string	getName();
+		std::string	getName() const;
 		int			getGrade() const;
 		void		incrementGrade();
 		void		decrementGrade();
 		void		signForm(AForm& form);
-		
-	
-		class GradeTooLowException : public std::exception{
-			public:
-			const char* what() const throw();
-		};
-		class GradeTooHighException : public std::exception{
-			public:
-			const char* what() const throw();
-		};
+		void		executeForm(AForm const& form);
 };
-
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
+	
 #endif

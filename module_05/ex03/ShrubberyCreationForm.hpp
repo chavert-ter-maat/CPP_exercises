@@ -14,10 +14,11 @@
 #define SHRUBBERYCREATIONFORM_HPP
 
 #include "AForm.hpp"
+#include "Bureaucrat.hpp"
+#include <iostream>
 
 #define SHRUB_SIGN	145
 #define SHRUB_EXEC	137
-
 
 class ShrubberyCreationForm : public AForm
 {
@@ -26,12 +27,13 @@ class ShrubberyCreationForm : public AForm
 	
 	public:
 		ShrubberyCreationForm();
-		ShrubberyCreationForm (std::string const target);
+		ShrubberyCreationForm(std::string const target);
     	ShrubberyCreationForm(const ShrubberyCreationForm &obj);
     	ShrubberyCreationForm& operator=(const ShrubberyCreationForm &obj);
 		~ShrubberyCreationForm();
 
-		void execute(const Bureaucrat& executor);
+		bool	execute(const Bureaucrat& executor) const;
+		
 		class notCreated : public std::exception{
 			public:
 			const char* what() const throw();

@@ -6,17 +6,19 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/11/22 09:11:00 by chavertterm   #+#    #+#                 */
-/*   Updated: 2023/12/06 13:19:49 by cter-maa      ########   odam.nl         */
+/*   Updated: 2024/03/12 10:39:34 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
 #include <iostream>
 
 class Bureaucrat
 {
 	private:
-		std::string	_name;
-		int			_grade;
+		const std::string	_name;
+		int					_grade;
 
 	public:
 		Bureaucrat();
@@ -25,10 +27,20 @@ class Bureaucrat
 		Bureaucrat& operator=(const Bureaucrat& obj);
 		~Bureaucrat();
 	
-		friend std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
-	
-		std::string	getName();
-		int	getGrade();
-		void	incrementGrade();
-		void	decrementGrade();
+
+		class GradeTooHighException : public std::exception{
+			const char *what() const throw();
+		};
+
+		class GradeTooLowException : public std::exception{
+			const char *what() const throw();
+		};
+		
+		std::string	getName() const;
+		int			getGrade();
+		void		incrementGrade();
+		void		decrementGrade();
 };
+std::ostream& operator<<(std::ostream& os, const Bureaucrat& bureaucrat);
+	
+#endif

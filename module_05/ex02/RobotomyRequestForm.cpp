@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/05 08:56:45 by cter-maa      #+#    #+#                 */
-/*   Updated: 2023/12/05 10:57:29 by cter-maa      ########   odam.nl         */
+/*   Updated: 2024/03/12 14:44:17 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string name) : AForm(name,
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &obj) 
-	: AForm(obj.getName(), ROBOT_SIGN, ROBOT_EXEC){
-	*this = obj;
+	: AForm(obj.getNameForm(), ROBOT_SIGN, ROBOT_EXEC){
 	std::cout << "RobotomyRequestForm copy constructor is called" << std::endl;
 }
 
@@ -42,10 +41,12 @@ RobotomyRequestForm::~RobotomyRequestForm(){
 }
 
 /* *************************** Member functions ***************************** */
- void   RobotomyRequestForm::execute(Bureaucrat const & executor){
+ void   RobotomyRequestForm::execute(Bureaucrat const & executor) const{
 	try{
-		this->beSigned(executor);
-		std::cout << std::endl << this->_target << " *makes some drilling noise*." <<std::endl;
+		canBeSigned(executor);
+		if(executor.getGrade() > ROBOT_EXEC)
+			throw GradeTooLowException();
+		std::cout << this->_target << " *makes some drilling noise*." <<std::endl;
         if (rand() % 2 == 0)
             std::cout << this->_target << " has been robotomized successfully." << std::endl;
         else

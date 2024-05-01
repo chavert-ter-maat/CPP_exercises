@@ -6,12 +6,10 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/01 15:55:48 by cter-maa      #+#    #+#                 */
-/*   Updated: 2023/12/07 12:55:59 by cter-maa      ########   odam.nl         */
+/*   Updated: 2024/03/12 15:16:39 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AForm.hpp"
-#include "Bureaucrat.hpp"
 #include "PresidentialPardonForm.hpp"
 
 /* ************************** Orthodox Canonical **************************** */
@@ -26,8 +24,7 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string name) : AForm(n
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &obj) 
-	: AForm(obj.getName(), PRESIDENT_SIGN, PRESIDENT_EXEC){
-	*this = obj;
+	: AForm(obj.getNameForm(), PRESIDENT_SIGN, PRESIDENT_EXEC){
 	std::cout << "PresidentialPardonForm copy constructor is called" << std::endl;
 }
 
@@ -44,12 +41,19 @@ PresidentialPardonForm::~PresidentialPardonForm(){
 }
 
 /* *************************** Member functions ***************************** */
- void PresidentialPardonForm::execute(Bureaucrat const & executor){
+
+
+
+bool	PresidentialPardonForm::execute(Bureaucrat const& executor) const{
 	try{
-		this->beSigned(executor);
-		std::cout << std::endl << this->_target << " has been pardoned by Zaphod Beeblebrox." <<std::endl;
+		canBeSigned(executor);
+		if(executor.getGrade() > PRESIDENT_EXEC)
+			throw GradeTooLowException();
+		std::cout << _target << " has been pardoned by Zaphod Beeblebrox." << std::endl << std::endl;
 	}
 	catch(const std::exception& e){
 		std::cerr << e.what() << std::endl;
+		return (false);
 	}
+	return (true);
  }

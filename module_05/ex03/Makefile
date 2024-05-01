@@ -6,52 +6,43 @@
 #    By: cter-maa <cter-maa@student.42.fr>            +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/11/21 09:05:30 by chavertterm   #+#    #+#                  #
-#    Updated: 2024/01/10 13:37:19 by chavertterm   ########   odam.nl          #
+#    Updated: 2024/03/12 12:23:06 by cter-maa      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-# File Name
-NAME	:= Aform
+NAME	:= intern
 
-# Object Files
-SRC		:= $(wildcard *.cpp)
-OBJ_DIR := ./obj
-OBJ     := $(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
-
-# Compiler and Flags
 CC		:= c++
 FLAGS	:= -Wall -Wextra -Werror -std=c++11
 
-# Debugging
-ifdef DEBUG
-	FLAGS += -g
-endif
+SRC		:= $(wildcard *.cpp)
 
-ifdef FSAN
-	FLAGS += -fsanitize=address,undefined
-endif
+OBJ_DIR = obj
 
-# Targets
-all: $(NAME)
+OBJ		:= $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
-$(OBJ_DIR):
-	mkdir -p $@
+all: $(OBJ_DIR) $(NAME)
 
+${OBJ_DIR}:
+	@mkdir -p ${OBJ_DIR}
+				
 run: all
 	./$(NAME)
 
-$(OBJ_DIR)/%.o: %.cpp | $(OBJ_DIR)
+$(OBJ): $(OBJ_DIR)/%.o : %.cpp
 	$(CC) $(FLAGS) -c $< -o $@
 
 $(NAME): $(OBJ)
 	$(CC) $^ -o $(NAME)
 
 clean:
-	@rm -rf $(OBJ_DIR)
+	@$(RM) -rf $(OBJ_DIR)
 
 fclean: clean
-	@rm -rf $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all
 
 .PHONY: clean all fclean re
+
+# .DEFAULT_GOAL:=run

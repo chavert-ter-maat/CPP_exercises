@@ -6,11 +6,11 @@
 #    By: cter-maa <cter-maa@student.42.fr>            +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/11/21 09:05:30 by chavertterm   #+#    #+#                  #
-#    Updated: 2024/03/12 14:34:42 by cter-maa      ########   odam.nl          #
+#    Updated: 2024/03/11 16:08:43 by cter-maa      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	:= aform
+NAME	:= bureaucrat
 
 CC		:= c++
 FLAGS	:= -Wall -Wextra -Werror -std=c++11
