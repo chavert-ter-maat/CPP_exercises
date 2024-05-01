@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   RPN.cpp                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/19 11:06:46 by chavertterm   #+#    #+#                 */
-/*   Updated: 2024/01/25 16:02:31 by chavertterm   ########   odam.nl         */
+/*   Updated: 2024/05/01 17:18:32 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,18 +55,10 @@ int	excecuteOperator(char c, int nb1, int nb2){
 }
 
 
-void	printStack(std::stack<int> stack){
-	while(!stack.empty()){
-		std::cout << stack.top() << ' ';
-		stack.pop();
-	}
-	std::cout << std::endl;
-}
-
 void	RPN::rpn(std::string str){
 	std::stack<int> stack;
 	for (uint i = 0; i < str.length();i++){
-		while(isspace(str[i]) == true)
+		while(str[i] == ' ')
 			i++;
 		char c = str[i];
 		if (c >= '0' && c <= '9'){

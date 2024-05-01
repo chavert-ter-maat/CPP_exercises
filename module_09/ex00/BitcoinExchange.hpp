@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   BitcoinExchange.hpp                                :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/15 12:26:16 by chavertterm   #+#    #+#                 */
-/*   Updated: 2024/01/25 11:35:45 by chavertterm   ########   odam.nl         */
+/*   Updated: 2024/05/01 15:52:57 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <algorithm>
 #include <fstream>
 #include <map>
-#include <string>
+#include <cstring>
 #include <ctime>
 #include <sstream>
 

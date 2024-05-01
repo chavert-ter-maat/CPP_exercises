@@ -3,15 +3,16 @@
 /*                                                        ::::::::            */
 /*   BitcoinExchange.cpp                                :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/19 11:06:46 by chavertterm   #+#    #+#                 */
-/*   Updated: 2024/04/29 14:33:00 by chavertterm   ########   odam.nl         */
+/*   Updated: 2024/05/01 16:43:19 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 #include <string>
+#include <iostream>
 
 // Canocical Orthodox
 BitcoinExchange::BitcoinExchange(){
@@ -51,11 +52,16 @@ void	BitcoinExchange::multiplyValue(){
 }
 
 void	BitcoinExchange::parseDateInfile(std::string line){
+	try{
 		std::string date_str = line.substr(0, line.find_first_of('|'));
 		std::cout << date_str << "=> " << this->_value << " = ";
 		date_str.erase(4, 1);
 		date_str.erase(6, 1);
 		this->_date = std::stoi(date_str);
+	}
+		catch(std::string& e){
+		std::cerr << strerror(errno) << std::endl;
+	}
 	}
 
 bool	BitcoinExchange::verifyInfile(std::string line){
@@ -74,7 +80,11 @@ bool	BitcoinExchange::verifyInfile(std::string line){
 			i++;
 		this->_value = std::stoi(line.substr(i));
 		if (this->_value < 0 || this->_value > 1000)
-			throw std::string("Invalid number");
+			throw std::string("Error: Invalid number");
+	}
+	catch(std::exception& e){
+		std::cerr << e.what() << ". Error: Invalid number" << std::endl;
+		return false;
 	}
 	catch(std::invalid_argument &e){
 		std::cerr << e.what() << std::endl;
@@ -104,7 +114,7 @@ int BitcoinExchange::verifyHeaderInfile(const std::string line){
 			i += 5;
 			while(isspace(line[i]))
 				i++;
-			if (line[i + 1] == '\0'){
+			if (line[i] == '\0'){
 				return (true);
 			}
 		}

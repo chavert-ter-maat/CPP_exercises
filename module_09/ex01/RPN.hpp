@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   RPN.hpp                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/15 12:26:16 by chavertterm   #+#    #+#                 */
-/*   Updated: 2024/01/25 15:59:16 by chavertterm   ########   odam.nl         */
+/*   Updated: 2024/05/01 17:11:02 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <stack>
+#include <cstring>
 
 class RPN{
 	public:

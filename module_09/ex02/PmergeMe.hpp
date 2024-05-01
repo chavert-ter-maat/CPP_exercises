@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   PmergeMe.hpp                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2024/01/15 12:26:16 by chavertterm   #+#    #+#                 */
-/*   Updated: 2024/04/29 16:40:59 by chavertterm   ########   odam.nl         */
+/*   Created: 2024/05/01 13:06:48 by cter-maa      #+#    #+#                 */
+/*   Updated: 2024/05/01 13:06:49 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include <iostream>
 #include <string>
-#include <list>
+#include <vector>
 #include <deque>
 #include <chrono>
 
@@ -38,13 +38,13 @@ class PmergeMe{
 	void	merging(T& container, int const left, int const mid, int const right);
 
 	template <typename T>
-	void	checkDoubles(const T& container);
+	void	checkDoubles(T container);
 
 	void	startMergeVec();
 	void	startMergeDeq();
 
 	private:
-	std::list<int>		_list;
+	std::vector<int>	_vec;
 	std::deque<int>		_deq;
 	int					_elementsVec;
 	int					_elementsDeq;

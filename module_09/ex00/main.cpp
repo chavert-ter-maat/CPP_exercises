@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   main.cpp                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/15 12:24:56 by chavertterm   #+#    #+#                 */
-/*   Updated: 2024/01/25 11:34:05 by chavertterm   ########   odam.nl         */
+/*   Updated: 2024/05/01 16:41:32 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,12 @@ void	BitcoinExchange::BitcoinExchange::loadFiles(char *argv){
 		throw std::string("Unable to open file");
 	parseDataFile(dataFile);
 	std::string line;
+	getline(inputFile, line);
+	if (BitcoinExchange::verifyHeaderInfile(line) != true){
+		std::cerr <<  "Error. Incorrect header" << std::endl;
+		exit(EXIT_FAILURE);
+	}
 	while (getline(inputFile, line)){
-		if (BitcoinExchange::verifyHeaderInfile(line) == true)
-			continue ;
 		if (verifyInfile(line) == true){
 			parseDateInfile(line);
 			multiplyValue();

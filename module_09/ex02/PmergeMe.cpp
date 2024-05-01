@@ -3,15 +3,17 @@
 /*                                                        ::::::::            */
 /*   PmergeMe.cpp                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: chaverttermaat <chaverttermaat@student.      +#+                     */
+/*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/19 11:06:46 by chavertterm   #+#    #+#                 */
-/*   Updated: 2024/04/29 16:44:21 by chavertterm   ########   odam.nl         */
+/*   Updated: 2024/05/01 13:08:30 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
-#include <set>
+
+template void PmergeMe::merging(std::vector<int>&, int, int, int);
+template void PmergeMe::mergeSort(std::vector<int>&, int, int);
 
 // Canocical Orthodox
 PmergeMe::PmergeMe(){
@@ -23,9 +25,10 @@ PmergeMe::PmergeMe(const PmergeMe& obj){
 
 PmergeMe& PmergeMe::operator=(const PmergeMe &obj){
 	if (this != &obj){
-		this->_list.clear();
-        std::copy(obj._list.begin(), obj._list.end(), std::back_inserter(this->_list));
-		this->_deq = std::deque<int>(obj._deq.begin(), obj._deq.end());
+		for(size_t i = 0; _vec[i]; i++){
+			this->_vec[i] = obj._vec[i];
+		}
+	this->_deq = std::deque<int>(obj._deq.begin(), obj._deq.end());
 	}
 	return *this;
 }
@@ -42,56 +45,72 @@ void	printArr(T arr){
 	std::cout << std::endl;
 }
 
-template <typename T>
+template <typename T> 
 void PmergeMe::merging(T& container, int const left, int const mid, int const right) {
-    T leftList(container.begin(), std::next(container.begin(), mid - left + 1));
-    T rightList(std::next(container.begin(), mid + 1), std::next(container.begin(), right + 1));
+    int const subArrOne = mid - left + 1;
+    int const subArrTwo = right - mid;
 
-    auto leftIter = leftList.begin();
-    auto rightIter = rightList.begin();
-    auto containerIter = std::next(container.begin(), left);
+    auto *leftArr = new int[subArrOne];
+    auto *rightArr = new int[subArrTwo];
 
-    while (leftIter != leftList.end() && rightIter != rightList.end()) {
-        if (*leftIter <= *rightIter) {
-            *containerIter = *leftIter;
-            ++leftIter;
-        } else {
-            *containerIter = *rightIter;
-            ++rightIter;
+    for (int i = 0; i < subArrOne; i++)
+        leftArr[i] = container[left + i];
+    for (int i = 0; i < subArrTwo; i++)
+        rightArr[i] = container[mid + 1 + i];
+
+    auto indexSubArrOne = 0;
+    auto indexSubArrTwo = 0;
+    int indexContainer = left;
+
+    while (indexSubArrOne < subArrOne && indexSubArrTwo < subArrTwo) 
+	{
+        if (leftArr[indexSubArrOne] <= rightArr[indexSubArrTwo]) 
+		{
+            container[indexContainer] = leftArr[indexSubArrOne];
+            indexSubArrOne++;
+        } 
+		else
+		{
+            container[indexContainer] = rightArr[indexSubArrTwo];
+            indexSubArrTwo++;
         }
-        ++containerIter;
+        indexContainer++;
     }
 
-    while (leftIter != leftList.end()) {
-        *containerIter = *leftIter;
-        ++leftIter;
-        ++containerIter;
+    while (indexSubArrOne < subArrOne) 
+	{
+        container[indexContainer] = leftArr[indexSubArrOne];
+        indexSubArrOne++;
+        indexContainer++;
     }
 
-    while (rightIter != rightList.end()) {
-        *containerIter = *rightIter;
-        ++rightIter;
-        ++containerIter;
+    while (indexSubArrTwo < subArrTwo) 
+	{
+        container[indexContainer] = rightArr[indexSubArrTwo];
+        indexSubArrTwo++;
+        indexContainer++;
     }
+    delete[] leftArr;
+    delete[] rightArr;
 }
 
 template <typename T>
-void PmergeMe::mergeSort(T& container, int const begin, int const end) {
-    if (begin >= end)
-        return;
+void	PmergeMe::mergeSort(T& container, int const begin, int const end)
+{
+	if (begin >= end)
+		return ;
+	int mid = begin + (end - begin) / 2;
+	mergeSort(container, begin, mid);
+	mergeSort(container, mid + 1, end);
+	merging(container, begin, mid, end);
 
-    int mid = begin + std::distance(container.begin(), std::next(container.begin(), end - begin)) / 2;
-
-    mergeSort(container, begin, mid);
-    mergeSort(container, mid + 1, end);
-    merging(container, begin, mid, end);
 }
 void	PmergeMe::startMergeVec(){
 	std::cout << "Before: ";
-	printContainer(this->_list);
+	printContainer(this->_vec);
 	auto start = std::chrono::high_resolution_clock::now();
-	this->_elementsVec = this->_list.size();
-	mergeSort(this->_list, 0, this->_elementsVec - 1);
+	this->_elementsVec = this->_vec.size();
+	mergeSort(this->_vec, 0, this->_elementsVec - 1);
 	auto stop = std::chrono::high_resolution_clock::now();
 	this->_deltaTimeVec = std::chrono::duration<double>(stop - start).count();
 }
@@ -110,14 +129,22 @@ void	PmergeMe::startMergeDeq(){
 }
 
 template <typename T>
-void PmergeMe::checkDoubles(const T& container) {
-    std::set<int> uniqueElements;
-    for (const auto& element : container) {
-        if (!uniqueElements.insert(element).second) {
-            std::cerr << "Error: Double integer found" << std::endl;
-            exit(EXIT_FAILURE);
-        }
-    }
+void	PmergeMe::checkDoubles(const T container){
+	size_t j = 0;
+	size_t i = 0;
+
+	while(container[i]){
+		j = i;
+		if (container[i + 1])
+			while(container[j]){
+				if (container[i] == container[j + 1]){
+					std::cerr << "Error: Double integer found" << std::endl;
+					exit(EXIT_FAILURE);
+				}
+				j++;
+			}
+		i++;
+	}
 }
 
 template <typename T>
@@ -140,7 +167,7 @@ void	PmergeMe::inputParsing(char **argv){
 				std::cout << "Error: Negative integer found" << std::endl;
 				exit(EXIT_FAILURE);
 			}
-			_list.push_back(nb);
+			_vec.push_back(nb);
 			_deq.push_back(nb);
 		}
 		catch (std::exception &e){
@@ -150,7 +177,6 @@ void	PmergeMe::inputParsing(char **argv){
 		i++;
 		j++;
 	}
-	checkDoubles(_list);
+	checkDoubles(_vec);
 	checkDoubles(_deq);
 	}
-
