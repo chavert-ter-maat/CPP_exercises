@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/15 12:26:16 by chavertterm   #+#    #+#                 */
-/*   Updated: 2024/05/01 15:52:57 by cter-maa      ########   odam.nl         */
+/*   Updated: 2024/05/14 15:06:38 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <fstream>
 #include <map>
 #include <cstring>
+#include <string>
 #include <ctime>
 #include <sstream>
 

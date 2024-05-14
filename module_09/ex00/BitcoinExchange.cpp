@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/19 11:06:46 by chavertterm   #+#    #+#                 */
-/*   Updated: 2024/05/01 16:43:19 by cter-maa      ########   odam.nl         */
+/*   Updated: 2024/05/14 15:26:55 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,17 @@ void	BitcoinExchange::parseDateInfile(std::string line){
 	}
 
 bool	BitcoinExchange::verifyInfile(std::string line){
+	int i = 0;
+	while(line[i]){
+		if (line[i] == '|' || (line[i] >= '0' && line[i] <= '9') || line[i] == ' ' || line[i] == '-'){
+			i++;
+			continue;
+		}
+		else{
+			std::cerr << "Error: Bad input" << std::endl;
+			return false;
+		}
+	}
 	try{
 		int year = std::stoi(line.substr(0, 4));
 		if (year < 2009 || year > 2022)

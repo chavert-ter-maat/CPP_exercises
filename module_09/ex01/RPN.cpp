@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/19 11:06:46 by chavertterm   #+#    #+#                 */
-/*   Updated: 2024/05/01 17:18:32 by cter-maa      ########   odam.nl         */
+/*   Updated: 2024/05/14 15:52:39 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,19 @@ int	excecuteOperator(char c, int nb1, int nb2){
 			return (nb2 - nb1);
 		}
 		case '/':{
+			if (nb1 == 0 || nb2 == 0)
+				throw std::string("Error: division by 0");
 			return (nb1 / nb2);
 		}
 		case '*':{
 			return (nb1 * nb2);
 		}
 		default:{
-			throw std::string("Error");
+			throw std::string("Error: invalid operator or number");
 			exit(EXIT_FAILURE);
 		}
 	}
 }
-
 
 void	RPN::rpn(std::string str){
 	std::stack<int> stack;
@@ -76,5 +77,4 @@ void	RPN::rpn(std::string str){
 			throw std::string("Error");
 	}
 	std::cout << stack.top() << std::endl;
-	// throw std::string("Error");
 }
