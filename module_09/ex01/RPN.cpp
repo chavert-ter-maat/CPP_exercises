@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/19 11:06:46 by chavertterm   #+#    #+#                 */
-/*   Updated: 2024/05/14 15:52:39 by cter-maa      ########   odam.nl         */
+/*   Updated: 2024/05/16 15:28:40 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,39 +42,48 @@ int	excecuteOperator(char c, int nb1, int nb2){
 			return (nb2 - nb1);
 		}
 		case '/':{
-			if (nb1 == 0 || nb2 == 0)
-				throw std::string("Error: division by 0");
-			return (nb1 / nb2);
+			if (nb1 == 0 || nb2 == 0){
+			std::cout << "Error: devision by 0" << std::endl;
+			exit(EXIT_FAILURE);
+			}
+			return (nb2 / nb1);
 		}
 		case '*':{
 			return (nb1 * nb2);
 		}
 		default:{
-			throw std::string("Error: invalid operator or number");
+			std::cout << "Error: invalid operator or number" << std::endl;
 			exit(EXIT_FAILURE);
 		}
 	}
 }
-
-void	RPN::rpn(std::string str){
+void RPN::rpn(std::string str) {
 	std::stack<int> stack;
-	for (uint i = 0; i < str.length();i++){
-		while(str[i] == ' ')
+	for (uint i = 0; i < str.length(); i++) {
+		while (str[i] == ' ')
 			i++;
 		char c = str[i];
-		if (c >= '0' && c <= '9'){
-			int nb = c - '0';
-			stack.push(nb);
+		if ( str[i] == '.' ||  str[i] == ','){
+			std::cout << "Error: no floats allowed" << std::endl;
+			exit(EXIT_FAILURE);
 		}
-		else if (stack.size() >= 2){
+
+		if (str[i] == '-' && (str[i + 1] >= '0' && str[i + 1] <= '9')) {
+			std::cout << "Error: no input < 0 allowed" << std::endl;
+			exit(EXIT_FAILURE);
+		}
+		if (c >= '0' && c <= '9') {
+			int nb = (c - '0');
+			stack.push(nb);
+		} else if (stack.size() >= 2) {
 			int nb1 = stack.top();
 			stack.pop();
 			int nb2 = stack.top();
 			stack.pop();
 			stack.push(excecuteOperator(str[i], nb1, nb2));
 		}
-		else
-			throw std::string("Error");
+		else if (c != ' ' && c != '\0')
+			throw std::string("Error: not enough numbers");
 	}
 	std::cout << stack.top() << std::endl;
 }
