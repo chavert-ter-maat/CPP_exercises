@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/19 11:06:46 by chavertterm   #+#    #+#                 */
-/*   Updated: 2024/05/01 13:08:30 by cter-maa      ########   odam.nl         */
+/*   Updated: 2024/05/16 15:42:42 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,10 +158,15 @@ void	PmergeMe::printContainer(T container){
 void	PmergeMe::inputParsing(char **argv){
 	
 	size_t i = 1;
-	size_t j = 0;
 
 	while (argv[i]){
 		try{
+			for (size_t j = 0; argv[i][j]; j++){
+				if (!isdigit(argv[i][j])){
+					std::cerr << "Error: Non-integer found" << std::endl;
+					exit(EXIT_FAILURE);
+				}
+			}
 			int	nb = std::stoi(argv[i]);
 			if (nb < 0){
 				std::cout << "Error: Negative integer found" << std::endl;
@@ -175,7 +180,6 @@ void	PmergeMe::inputParsing(char **argv){
 			exit(EXIT_FAILURE);
 		}
 		i++;
-		j++;
 	}
 	checkDoubles(_vec);
 	checkDoubles(_deq);
