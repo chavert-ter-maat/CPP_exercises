@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/19 11:06:46 by chavertterm   #+#    #+#                 */
-/*   Updated: 2024/05/16 15:28:40 by cter-maa      ########   odam.nl         */
+/*   Updated: 2024/05/17 09:46:43 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ RPN& RPN::operator=(const RPN &obj){
 
 RPN::~RPN(){
 };
-
 
 // Member functions
 int	excecuteOperator(char c, int nb1, int nb2){
@@ -57,6 +56,7 @@ int	excecuteOperator(char c, int nb1, int nb2){
 		}
 	}
 }
+
 void RPN::rpn(std::string str) {
 	std::stack<int> stack;
 	for (uint i = 0; i < str.length(); i++) {
@@ -67,7 +67,6 @@ void RPN::rpn(std::string str) {
 			std::cout << "Error: no floats allowed" << std::endl;
 			exit(EXIT_FAILURE);
 		}
-
 		if (str[i] == '-' && (str[i + 1] >= '0' && str[i + 1] <= '9')) {
 			std::cout << "Error: no input < 0 allowed" << std::endl;
 			exit(EXIT_FAILURE);

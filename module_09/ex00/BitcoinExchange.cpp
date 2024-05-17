@@ -6,7 +6,7 @@
 /*   By: cter-maa <cter-maa@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/19 11:06:46 by chavertterm   #+#    #+#                 */
-/*   Updated: 2024/05/14 15:26:55 by cter-maa      ########   odam.nl         */
+/*   Updated: 2024/05/17 13:23:45 by cter-maa      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	BitcoinExchange::parseDateInfile(std::string line){
 bool	BitcoinExchange::verifyInfile(std::string line){
 	int i = 0;
 	while(line[i]){
-		if (line[i] == '|' || (line[i] >= '0' && line[i] <= '9') || line[i] == ' ' || line[i] == '-'){
+		if (line[i] == '|' || (line[i] >= '0' && line[i] <= '9') || line[i] == ' ' || line[i] == '-' || line[i] == '.' || line[i] == ','){
 			i++;
 			continue;
 		}
@@ -78,7 +78,7 @@ bool	BitcoinExchange::verifyInfile(std::string line){
 	}
 	try{
 		int year = std::stoi(line.substr(0, 4));
-		if (year < 2009 || year > 2022)
+		if (year < 2004 || year > 2022)
 			throw std::string("Error: Bad input");
 		int month = std::stoi(line.substr(5, 6));
 		if (month < 1 || month > 12)
@@ -89,7 +89,7 @@ bool	BitcoinExchange::verifyInfile(std::string line){
 		int i = 10;
 		while((isspace(line[i]) || line[i] == '|') && line[i])
 			i++;
-		this->_value = std::stoi(line.substr(i));
+		this->_value = std::stof(line.substr(i));
 		if (this->_value < 0 || this->_value > 1000)
 			throw std::string("Error: Invalid number");
 	}
