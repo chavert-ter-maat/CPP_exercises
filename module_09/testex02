@@ -1,0 +1,32 @@
+# Basic operations
+./RPN "1 1 +"              # 1 + 1 = 2
+./RPN "2 3 *"              # 2 * 3 = 6
+./RPN "10 5 /"             # 10 / 5 = 2
+./RPN "5 3 -"              # 5 - 3 = 2
+./RPN "2 2 + 3 *"          # (2 + 2) * 3 = 12
+
+# Mixed operations
+./RPN "5 1 2 + 4 * + 3 -"  # 5 + ((1 + 2) * 4) - 3 = 14
+./RPN "2 3 4 + *"          # 2 * (3 + 4) = 14
+./RPN "3 5 8 * 7 + *"      # 3 * (5 * 8 + 7) = 213
+
+# More complex expressions
+./RPN "5 1 2 + 4 * 3 - 5 +"  # 5 + ((1 + 2) * 4 - 3) + 5 = 14
+./RPN "10 6 9 3 + -11 * / * 17 + 5 +"  # Well-known RPN example, result = 22
+
+# Edge cases (single number)
+./RPN "42"                 # Single operand, should return 42
+./RPN "100"                # Single operand, should return 100
+
+# Negative numbers and zero
+./RPN "-3 -2 +"            # -3 + (-2) = -5
+./RPN "0 5 *"              # 0 * 5 = 0
+./RPN "-2 3 *"             # -2 * 3 = -6
+./RPN "5 0 /"              # Test case for division by zero (should handle gracefully)
+
+# Invalid cases (error handling)
+./RPN "1 +"                # Error: Missing operand
+./RPN "+"                  # Error: Invalid input
+./RPN "2 3 + -"            # Error: Missing operand for the second operator
+./RPN "2 2 2 +"            # Error: Extra operand
+./RPN "a b +"              # Error: Invalid characters
